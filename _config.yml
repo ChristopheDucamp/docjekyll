@@ -5,4 +5,4 @@ permalink: /news/:year/:month/:day/:title/
 excerpt_separator: noifniof3nioaniof3nioafafinoafnoif
 repository: https://github.com/christopheducamp/docjekyll
 baseurl: http://christopheducamp.github.io/docjekyll
-#url: http://localhost:4000
+url: http://christopheducamp.github.io/docjekyll
