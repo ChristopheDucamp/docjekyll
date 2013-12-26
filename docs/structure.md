@@ -1,27 +1,21 @@
 ---
 layout: docs
-title: Directory structure
+title: Structure des Répertoires
 prev_section: usage
 next_section: configuration
 permalink: /docs/structure/
 ---
 
-Jekyll is, at its core, a text transformation engine. The concept behind the
-system is this: you give it text written in your favorite markup language, be
-that Markdown, Textile, or just plain HTML, and it churns that through a layout
-or series of layout files. Throughout that process you can tweak how you want
-the site URLs to look, what data gets displayed in the layout, and more. This is
-all done through editing text files, and the static web site is the final
-product.
+Jekyll, en son coeur, est un moteur de transformation de texte. Le concept derrière le système est celui-ci : vous lui donnez du texte écrit dans votre langage de marquage favori, que ce soit Markdown, Textile ou tout simplement du HTML, et il mixe cela à travers un layout ou une série de fichiers de layout. Par ce processus, vous pouvez bricoler comme vous voulez les URLs du site à regarder, quelles sont les data affichées dans le layout et bien plus encore. Tout ceci est produit à travers l'édition de fichiers textes, le site web statique étant le produit final.
 
-A basic Jekyll site usually looks something like this:
+Un site Jekyll basique ressemble généralement à ça : 
 
 {% highlight bash %}
 .
 ├── _config.yml
 ├── _drafts
-|   ├── begin-with-the-crazy-ideas.textile
-|   └── on-simplicity-in-technology.markdown
+|   ├── commence-avec-les-idees-folles.textile
+|   └── de-la-simplicite-dans-la-techonologie.markdown
 ├── _includes
 |   ├── footer.html
 |   └── header.html
@@ -29,21 +23,21 @@ A basic Jekyll site usually looks something like this:
 |   ├── default.html
 |   └── post.html
 ├── _posts
-|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
-|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+|   ├── 2013-10-29-pourquoi-chaque-programmeur-devrait-jouer-avec-indieweb.textile
+|   └── 2013-04-26-indieweb-paris-.textile
 ├── _data
-|   └── members.yml
+|   └── membres.yml
 ├── _site
 └── index.html
 {% endhighlight %}
 
-An overview of what each of these does:
+Un aperçu de ce que chacun de ces items produit :
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>File / Directory</th>
+      <th>Fichier / Répertoire</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -55,9 +49,7 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Stores <a href="../configuration/">configuration</a> data. Many of
-          these options can be specified from the command line executable but
-          it’s easier to specify them here so you don’t have to remember them.
+          Stocke les data de <a href="../configuration/">configuration</a>. Bon nombre de ces options peuvent être spécifiées à partir de l'exécutable en ligne de commande mais il est plus facile de les spécifier ici pour que vous puissiez vous en souvenir.
 
         </p>
       </td>
@@ -69,7 +61,7 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Drafts are unpublished posts. The format of these files is without a date: <code>title.MARKUP</code>. Learn how to <a href="../drafts/">work with drafts</a>.
+          Les drafts sont des posts non publiés. Le format de ces fichiers est sans date : <code>title.MARKUP</code>. Apprenez comment <a href="../drafts/">travailler avec des drafts</a>.
 
         </p>
       </td>
@@ -81,11 +73,9 @@ An overview of what each of these does:
       <td>
         <p>
 
-          These are the partials that can be mixed and matched by your layouts
-          and posts to facilitate reuse. The liquid tag
+          Ceci sont des partiels qui peuvent être mixés et reconnus par vos layouts et posts pour réutilisation. Le tag liquid 
           <code>{% raw %}{% include file.ext %}{% endraw %}</code>
-          can be used to include the partial in
-          <code>_includes/file.ext</code>.
+          peut être utilisé pour inclure le partiel dans <code>_includes/file.ext</code>.
 
         </p>
       </td>
@@ -97,11 +87,9 @@ An overview of what each of these does:
       <td>
         <p>
 
-          These are the templates that wrap posts. Layouts are chosen on a post-
-          by-post basis in the <a href="../frontmatter/">YAML front matter</a>,
-          which is described in the next section. The liquid tag
+          Voici les templates qui emballent les posts. Les layouts sont choisis sur une base post-à-post dans le <a href="../frontmatter/">front matter YAML</a>, décrit dans la section suivantes. Le tag liquid
           <code>{% raw %}{{ content }}{% endraw %}</code>
-          is used to inject content into the web page.
+          est utilisé pour injecter du contenu à l'intérieur de la page web.
 
         </p>
       </td>
@@ -113,12 +101,9 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Your dynamic content, so to speak. The format of these files is
-          important, and must follow the format:
-          <code>YEAR-MONTH-DAY-title.MARKUP</code>.
-          The <a href="../permalinks/">permalinks</a> can be customized for each
-          post, but the date and markup language are determined solely by the
-          file name.
+          Votre contenu dynamique, pour ainsi dire. Le format de ces fichiers est important, et doit suivre le format :
+          <code>ANNEE-MOIS-JOUR-title.MARKUP</code>.
+          Les <a href="../permalinks/">permaliens</a> peuvent être personnalisés pour chaque post, mais la date et le langage de marquage sont déterminés uniquement par le nom de fichier.
 
         </p>
       </td>
@@ -130,10 +115,7 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Well-formatted site data should be placed here. The jekyll engine will 
-          autoload all yaml files (ends with <code>.yml</code> or <code>.yaml</code>) 
-          in this directory. If there's a file <code>members.yml</code> under the directory, 
-          then you can access contents of the file through <code>site.data.members</code>.
+          La data du site bien formatée devrait être placée ici. Le moteur Jekyll auto-chargera tous les fichiers yaml (fin avec <code>.yml</code> ou <code>.yaml</code>) dans ce répertoire. S'il existe un fichier <code>membres.yml</code> sous le répertoire, alors vous pouvez accéder aux contenus du fichiers à travers<code>site.data.membres</code>.
 
         </p>
       </td>
@@ -145,42 +127,34 @@ An overview of what each of these does:
       <td>
         <p>
 
-          This is where the generated site will be placed (by default) once
-          Jekyll is done transforming it. It’s probably a good idea to add this
-          to your <code>.gitignore</code> file.
+          C'est là où le site généré sera placé (par défaut) une fois que Jekyll a effectué la transformation. C'est probablement une bonne idée de l'ajouter à votre fichier <code>.gitignore</code>.
 
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p><code>index.html</code> and other HTML, Markdown, Textile files</p>
+        <p><code>index.html</code> et d'autres fichiers HTML, Markdown, Textile</p>
       </td>
       <td>
         <p>
 
-          Provided that the file has a <a href="../frontmatter/">YAML Front
-          Matter</a> section, it will be transformed by Jekyll. The same will
-          happen for any <code>.html</code>, <code>.markdown</code>,
-          <code>.md</code>, or <code>.textile</code> file in your site’s root
-          directory or directories not listed above.
+          Si le fichier a une section <a href="../frontmatter/">YAML Front
+          Matter</a>, il sera transformé par Jekyll. La même chose arrive pour tout fichier <code>.html</code>, <code>.markdown</code>,
+          <code>.md</code>, ou <code>.textile</code> dans le répertoire racine de votre site ou les répertoires non listées au-dessus.
 
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p>Other Files/Folders</p>
+        <p>Autres fichiers/Répertoires</p>
       </td>
       <td>
         <p>
 
-          Every other directory and file except for those listed above—such as
-          <code>css</code> and <code>images</code> folders,
-          <code>favicon.ico</code> files, and so forth—will be copied verbatim
-          to the generated site. There are plenty of <a href="../sites/">sites
-          already using Jekyll</a> if you’re curious to see how they’re laid
-          out.
+          Chaque autre répertoire et fichier mis à part ceux listés au-dessus- tels que des dossiers  
+          <code>css</code> et <code>images</code>, des fichiers <code>favicon.ico</code>, et ainsi de suite seront copiés vers le site généré. Il existe beaucoup de <a href="../sites/">sites utilisant déjà Jekyll</a>  si vous êtes curieux de voir comment ils sont construits.
 
         </p>
       </td>

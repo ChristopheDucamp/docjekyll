@@ -1,23 +1,21 @@
 ---
 layout: news_item
-title: "Jekyll 1.0.0 Released"
+title: "Sortie Jekyll 1.0.0"
 date: "2013-05-06 02:12:52 +0200"
 author: parkr
 version: 1.0.0
 categories: [release]
 ---
 
-Hey! After many months of hard work by Jekyll's contributors, we're excited
-to announce the first major release of the project in a long while. v1.0.0 is
-finally here! While the list of improvements and bug fixes is [quite lengthy][history],
-here are the highlights (thanks to [@benbalter](http://twitter.com/BenBalter) for the
-examples and for compiling this list):
+Hé après de mois de dur travail pour les contributeurs de Jekyll, nous sommes excités d'annoncer la première mise à jour majeure du projet depuis un long moment ! La v1.0.0 est
+enfin là ! Bien que la liste des améliorations et réparations de bugs soit [vraiment longue][history],
+voici les points forts (grâce à [@benbalter](http://twitter.com/BenBalter) pour les exemples et pour avoir compilé cette liste) : 
 
-- Support for the Gist tag for easily embedding Gists ([example](https://gist.github.com/benbalter/5555251))
-- Automatically generated post excerpts ([example](https://gist.github.com/benbalter/5555369))
-- Save and preview drafts before publishing ([example](https://gist.github.com/benbalter/5555992))
+- Support du tag Gist pour embarquer facilement des Gists ([exemple](https://gist.github.com/benbalter/5555251))
+- Extraction posts automatiquement générées ([exemple](https://gist.github.com/benbalter/5555369))
+- Sauvegarde et prévisualisation des drafts avant publication ([exemple](https://gist.github.com/benbalter/5555992))
 
-Take a look at the [Upgrading][] page in the docs for more detailed information.
+Jetez un oeil à la page [Mise à jour][] dans le docs pour plus d'informations.
 
 [history]: /docs/history/#100__20130506
-[Upgrading]: /docs/upgrading/
+[Mise à jour]: /docs/upgrading/

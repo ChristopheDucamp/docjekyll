@@ -1,52 +1,37 @@
 ---
 layout: docs
-title: Welcome
+title: Bienvenue
 next_section: quickstart
 permalink: /docs/home/
 ---
 
-This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such
-as getting your site up and running, creating and managing your content,
-customizing the way your site works and looks, deploying to various
-environments, and give you some advice on participating in the future
-development of Jekyll itself.
+Ce site a pour objectif d'être un guide compréhensible de Jekyll. Nous couvrirons des sujets comme la construction et la propulsion de votre site, la création et gestion de votre contenu, la personnalisation et la façon de fonctionner, à quoi il ressemble, son déploiement différents environnements, et vous donnerons quelques conseils pour participer au futur développement de Jekyll en lui-même.
 
-## So what is Jekyll, exactly?
+## Aussi, c'est quoi Jekyll, précisément ?
 
-Jekyll is a simple, blog-aware, static site generator. It takes a template
-directory containing raw text files in various formats, runs it through
-[Markdown](http://daringfireball.net/projects/markdown/) (or
-[Textile](http://textile.sitemonks.com/)) and
-[Liquid](http://wiki.shopify.com/Liquid)
-converters, and spits out a complete, ready-to-publish static website suitable
-for serving with your favorite web server. Jekyll also happens to be the engine
-behind [GitHub Pages](http://pages.github.com), which means you can use Jekyll
-to host your project’s page, blog, or website from GitHub’s servers **for
-free**.
+Jekyll est un simple générateur de site statique, adapté aux blogs. Il prend un  
+répertoire de gabarits contenant des fichiers texte bruts dans différents formats, les fait tourner avec [Markdown](http://daringfireball.net/projects/markdown/) (ou 
+[Textile](http://textile.sitemonks.com/)) et des convertisseurs [Liquid](http://wiki.shopify.com/Liquid), et recrache le tout dans un site web statique complet, prêt à être publié et adapté pour être servi sur votre serveur web préféré. Jekyll, c'est aussi le moteur derrière les [GitHub Pages](http://pages.github.com), ce qui signifie que vous pouvez utiliser Jekyll pour héberger **gratuitement** votre page projet, blog ou site web provenant des serveurs de GitHub.
 
-## ProTips™, Notes, and Warnings
+## ProTips™, Notes et Avertissements
 
-Throughout this guide there are a number of small-but-handy pieces of
-information that can make using Jekyll easier, more interesting, and less
-hazardous. Here’s what to look out for.
+Il existe sur ce guide une quantité de petits paragraphes d'information qui peuvent faciliter l'utilisation de Jekyll, le rendre plus intéressant et moins hasardeux. 
+Voici ce que vous pourriez trouver.
 
 <div class="note">
-  <h5>ProTips™ help you get more from Jekyll</h5>
-  <p>These are tips and tricks that will help you be a Jekyll wizard!</p>
+  <h5>ProTrucs™ vous aide à le maximum de Jekyll</h5>
+  <p>Ce sont des trucs et astuces qui vous aideront à devenir un mage Jekyll !</p>
 </div>
 
 <div class="note info">
-  <h5>Notes are handy pieces of information</h5>
-  <p>These are for the extra tidbits sometimes necessary to understand
+  <h5>Notes et contenus d'informations pratiques</h5>
+  <p>Ce sont les petits trucs bonus nécessaires pour comprendre 
      Jekyll.</p>
 </div>
 
 <div class="note warning">
-  <h5>Warnings help you not blow things up</h5>
-  <p>Be aware of these messages if you wish to avoid certain death.</p>
+  <h5>Les Avertissements vous aident à ne pas tout exploser</h5>
+  <p>Prenez connaissance de ces messages si vous voulez éviter une mort certaine.</p>
 </div>
 
-If you come across anything along the way that we haven’t covered, or if you
-know of a tip you think others would find handy, please [file an
-issue]({{ site.repository }}/issues/new) and we’ll see about
-including it in this guide.
+Si vous croisez en chemin un truc que nous n'avons pas corrigé, ou si vous connaissez une astuce que les autres pourraient trouver pratique, [déposez un "issue"]({{ site.repository }}/issues/new) et nous étudierons son ajout dans ce guide.

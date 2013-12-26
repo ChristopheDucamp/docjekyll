@@ -1,33 +1,29 @@
 ---
 layout: docs
-title: Extras
+title: Bonus
 prev_section: plugins
 next_section: github-pages
 permalink: /docs/extras/
 ---
 
-There are a number of (optional) extra features that Jekyll supports that you
-may want to install, depending on how you plan to use Jekyll.
+Il existe un certain nombre de fonctionnalités bonus (optionnelles) supportées par Jekyll que vous pourriez avoir envie d'installer, selon votre plan d'utilisation de Jekyll.
 
-## LaTeX Support
+## Support LaTeX
 
-Maruku comes with optional support for LaTeX to PNG rendering via blahtex
-(Version 0.6) which must be in your `$PATH` along with `dvips`. If you need
-Maruku to not assume a fixed location for `dvips`, check out [Remi’s Maruku
-fork](http://github.com/remi/maruku).
+Maruku vient avec un support optionnel de LaTeX vers un rendu PNG via blahtex
+(Version 0.6) qui doit être dans votre `$PATH` aux côtés de `dvips`. Si vous avez 
+besoin de Maruku pour ne pas supposer un endroit fixé pour `dvips`, regardez le 
+[fork Maruku de Remi](http://github.com/remi/maruku).
 
 ## RDiscount
 
-If you prefer to use [RDiscount](http://github.com/rtomayko/rdiscount) instead
-of [Maruku](http://github.com/bhollis/maruku) for Markdown, just make sure you have
-it installed:
+Si vous préférez utiliser [RDiscount](http://github.com/rtomayko/rdiscount) au lieu de [Maruku](http://github.com/bhollis/maruku) pour Markdown, assurez-vous de l'installer :
 
 {% highlight bash %}
 $ [sudo] gem install rdiscount
 {% endhighlight %}
 
-And then specify RDiscount as the Markdown engine in your `_config.yml` file to
-have Jekyll run with that option.
+Puis allez dans votre fichier `_config.yml` et spécifiez RDiscount comme moteur Markdown afin que Jekyll tourne avec cette option.
 
 {% highlight yaml %}
 # In _config.yml
@@ -36,21 +32,20 @@ markdown: rdiscount
 
 ## Kramdown
 
-You can also use [Kramdown](http://kramdown.rubyforge.org/) instead of Maruku
-for Markdown. Make sure that Kramdown is installed:
+Vous pouvez aussi utiliser [Kramdown](http://kramdown.rubyforge.org/) au lieu de Maruku
+pour Markdown. Assurez-vous que Kramdown soit installé :
 
 {% highlight bash %}
 $ [sudo] gem install kramdown
 {% endhighlight %}
 
-Then you can specify Kramdown as the Markdown engine in `_config.yml`.
+Ensuite vous pouvez spécifier Kramdown comme moteur Markdown dans `_config.yml`.
 
 {% highlight yaml %}
 # In _config.yml
 markdown: kramdown
 {% endhighlight %}
 
-Kramdown has various options for customizing the HTML output. The
-[Configuration](/docs/configuration/) page lists the default options used by
-Jekyll. A complete list of options is also available on the [Kramdown
-website](http://kramdown.rubyforge.org/options.html).
+Kramdown a différentes options pour personnaliser l'output HTML. La page 
+[Configuration](/docs/configuration/) liste les options par défaut utilisées par 
+Jekyll. Une liste complète des options est aussi disponible sur le [site web Kramdown](http://kramdown.rubyforge.org/options.html).

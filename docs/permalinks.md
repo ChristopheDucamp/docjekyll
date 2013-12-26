@@ -1,22 +1,17 @@
 ---
 layout: docs
-title: Permalinks
+title: Permaliens
 prev_section: templates
 next_section: pagination
 permalink: /docs/permalinks/
 ---
 
-Jekyll supports a flexible way to build your site’s URLs. You can specify the
-permalinks for your site through the [Configuration](../configuration/) or in the
-[YAML Front Matter](../frontmatter/) for each post. You’re free to choose one of
-the built-in styles to create your links or craft your own. The default style is
-`date`.
+Jekyll supporte un moyen flexible pour construire les URLs de votre site. Vous pouvez spécifier les permaliens de votre site dans la [Configuration](../configuration/) ou dans le 
+[Front Matter YAML](../frontmatter/) pour chaque post. Vous êtes libre de choisir l'un des styles intégrés pour créer vos liens ou façonner les vôtres. Le style par défaut est `date`.
 
-Permalinks are constructed by creating a template URL where dynamic elements are
-represented by colon-prefixed keywords. For example, the default `date`
-permalink is defined as `/:categories/:year/:month/:day/:title.html`.
+Les permaliens sont construits en créant un gabarit d'URL où les éléments dynamiques sont représentés par des mots-clés préfixés-par-deux-points. Par exemple, le permalien par défaut `date` est défini comme  `/:categories/:year/:month/:day/:titre.html`.
 
-## Template variables
+## Variables template
 
 <div class="mobile-side-scroller">
 <table>
@@ -32,7 +27,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>year</code></p>
       </td>
       <td>
-        <p>Year from the Post’s filename</p>
+        <p>Année extraite du nom de fichier du Post</p>
       </td>
     </tr>
     <tr>
@@ -40,7 +35,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>month</code></p>
       </td>
       <td>
-        <p>Month from the Post’s filename</p>
+        <p>Mois extrait du nom de fichier du Post</p>
       </td>
     </tr>
     <tr>
@@ -48,7 +43,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>i_month</code></p>
       </td>
       <td>
-        <p>Month from the Post’s filename without leading zeros.</p>
+        <p>Mois tiré du nom de fichier du Post sans les zéros devant.</p>
       </td>
     </tr>
     <tr>
@@ -56,7 +51,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>day</code></p>
       </td>
       <td>
-        <p>Day from the Post’s filename</p>
+        <p>Jour extrait du nom de fichier du Post</p>
       </td>
     </tr>
     <tr>
@@ -64,7 +59,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>i_day</code></p>
       </td>
       <td>
-        <p>Day from the Post’s filename without leading zeros.</p>
+        <p>Jour extrait du nom de fichier du Post sans les zéros devant.</p>
       </td>
     </tr>
     <tr>
@@ -72,7 +67,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>title</code></p>
       </td>
       <td>
-        <p>Title from the Post’s filename</p>
+        <p>Titre extrait du nom de fichier du Post</p>
       </td>
     </tr>
     <tr>
@@ -81,9 +76,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
       </td>
       <td>
         <p>
-          The specified categories for this Post. Jekyll automatically parses
-          out double slashes in the URLs, so if no categories are present, it
-          will ignore this.
+          Les catégories spécifiées pour ce Post. Jekyll parse automatiquement les double slashes dans les URLs, aussi si aucune catégorie n'est présente, il ignorera cela.
         </p>
       </td>
     </tr>
@@ -91,14 +84,14 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
 </table>
 </div>
 
-## Built-in permalink styles
+## Styles de permaliens intégrés
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Permalink Style</th>
-      <th>URL Template</th>
+      <th>Style de Permalien</th>
+      <th>Gabarit URL</th>
     </tr>
   </thead>
   <tbody>
@@ -130,25 +123,25 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
 </table>
 </div>
 
-## Permalink style examples
+## Exemples de style de permalien
 
-Given a post named: `/2009-04-29-slap-chop.textile`
+Prenons un post appelé : `/2009-04-29-crac-boum.textile`
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Permalink Setting</th>
-      <th>Resulting Permalink URL</th>
+      <th>Réglage Permalien</th>
+      <th>URL Permalien Résultante</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <p>None specified, or <code>permalink: date</code></p>
+        <p>Rien de spécifié, ou <code>permalink: date</code></p>
       </td>
       <td>
-        <p><code>/2009/04/29/slap-chop.html</code></p>
+        <p><code>/2009/04/29/crac-boum.html</code></p>
       </td>
     </tr>
     <tr>
@@ -156,7 +149,7 @@ Given a post named: `/2009-04-29-slap-chop.textile`
         <p><code>permalink: pretty</code></p>
       </td>
       <td>
-        <p><code>/2009/04/29/slap-chop/index.html</code></p>
+        <p><code>/2009/04/29/crac-boum/index.html</code></p>
       </td>
     </tr>
     <tr>
@@ -164,7 +157,7 @@ Given a post named: `/2009-04-29-slap-chop.textile`
         <p><code>permalink: /:month-:day-:year/:title.html</code></p>
       </td>
       <td>
-        <p><code>/04-29-2009/slap-chop.html</code></p>
+        <p><code>/04-29-2009/crac-boum.html</code></p>
       </td>
     </tr>
     <tr>
@@ -172,7 +165,7 @@ Given a post named: `/2009-04-29-slap-chop.textile`
         <p><code>permalink: /blog/:year/:month/:day/:title</code></p>
       </td>
       <td>
-        <p><code>/blog/2009/04/29/slap-chop/index.html</code></p>
+        <p><code>/blog/2009/04/29/crac-boum/index.html</code></p>
       </td>
     </tr>
   </tbody>

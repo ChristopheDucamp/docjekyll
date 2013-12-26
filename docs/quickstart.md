@@ -1,32 +1,29 @@
 ---
 layout: docs
-title: Quick-start guide
+title: Guide de démarrage rapide
 prev_section: home
 next_section: installation
 permalink: /docs/quickstart/
 ---
 
-For the impatient, here's how to get a boilerplate Jekyll site up and running.
+Impatient ?  Voici comment construire et faire tourner un site Jekyll tous-terrains et *passe-partout*.
 
 {% highlight bash %}
 ~ $ gem install jekyll
-~ $ jekyll new myblog
-~ $ cd myblog
-~/myblog $ jekyll serve
-# => Now browse to http://localhost:4000
+~ $ jekyll new monblog
+~ $ cd monblog
+~/monblog $ jekyll serve
+# => naviguez maintenant vers http://localhost:4000
 {% endhighlight %}
 
-That's nothing, though. The real magic happens when you start creating blog
-posts, using the front-matter to control templates and layouts, and taking
-advantage of all the awesome configuration options Jekyll makes available.
+Ceci n'est rien néanmoins. La véritable magie opère quand vous commencez à créer des posts de blog, à utiliser le front-matter pour contrôler les gabarits et layouts, et en tirant partie de toutes les merveilleuses options de configuration offertes par Jekyll.
 
 <div class="note info">
-  <h5>Redcarpet is the default Markdown engine for new sites</h5>
-  <p>In Jekyll 1.1, we switched the default markdown engine for sites
-     generated with <code>jekyll new</code> to Redcarpet</p>
+  <h5>Redcarpet est le moteur Markdown par défaut pour les nouveaux sites</h5>
+  <p>Dans Jekyll 1.1, nous avons basculé le moteur markdown par défaut vers Redcarpet pour les sites générés avec <code>jekyll new</code></p>
 </div>
 
-If you're running into problems, ensure you have all the [requirements
-installed][Installation].
+Si vous rencontrez des problèmes, assurez-vous d'avoir tous les [pré-requis 
+installés][Installation].
 
 [Installation]: /docs/installation/

@@ -1,11 +1,9 @@
 ---
 layout: docs
-title: Blog migrations
+title: Migration de blogs
 prev_section: datafiles
 next_section: templates
 permalink: /docs/migrations/
 ---
 
-If you’re switching to Jekyll from another blogging system, Jekyll’s importers
-can help you with the move. To learn more about importing your site to Jekyll,
-visit our [`jekyll-import` docs site](http://import.jekyllrb.com).
+Si vous migrez vers Jekyll à partir d'un autre système de blog, les importateurs Jekyll peuvent vous aider faire la migration. Pour en savoir plus sur l'importation de votre site vers Jekyll, visitez notre [site de docs `jekyll-import`](http://import.jekyllrb.com).

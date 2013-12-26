@@ -7,12 +7,14 @@ version: 1.4.2
 categories: [release]
 ---
 
-This release fixes [a regression][] where Maruku fenced code blocks were turned
-off, instead of the previous default to on. We've added a new default
-configuration to our `maruku` config key: `fenced_code_blocks` and set it to
-default to `true`.
+Cette release réparer [une régression][] où les blocs de code fenced de Maruku ont été désactivés, 
+au lieu de la valeur précédente par défaut sur on. 
+Nous avons ajouté une nouvelle configuration par défaut 
+à notre clé de config `maruku` : `fenced_code_blocks` et l'avons 
+réglé par défaut sur `true`.
 
-If you do not wish to use Maruku fenced code blocks, you may turn this option
-off in your site's configuration file.
+Si vous ne souhaitez pas utiliser les blocs de code fenced  de Maruku, 
+vous pouvez désactiver cette option dans votre fichier de configuration du site.
 
-[a regression]: https://github.com/jekyll/jekyll/pull/1830
+
+[une régression]: https://github.com/jekyll/jekyll/pull/1830

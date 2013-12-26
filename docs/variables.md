@@ -6,13 +6,10 @@ next_section: datafiles
 permalink: /docs/variables/
 ---
 
-Jekyll traverses your site looking for files to process. Any files with [YAML
-Front Matter](../frontmatter/) are subject to processing. For each of these
-files, Jekyll makes a variety of data available via the [Liquid templating
-system](http://wiki.shopify.com/Liquid). The
-following is a reference of the available data.
+Jekyll parcourt votre site en cherchant les fichiers à traiter. Tous les fichiers avec un [Front Matter YAML](../frontmatter/) sont sujets au traitement. Pour chacun de ces fichiers, Jekyll produit une variété de data disponibles via le [sytème de template Liquid](http://wiki.shopify.com/Liquid). 
+Ce qui suit est une référence des data disponibles.
 
-## Global Variables
+## Variables Globales 
 
 <div class="mobile-side-scroller">
 <table>
@@ -27,8 +24,8 @@ following is a reference of the available data.
       <td><p><code>site</code></p></td>
       <td><p>
 
-          Sitewide information + configuration settings from
-          <code>_config.yml</code>. See below for details.
+          Information sur tout le site + réglages de configuration à partir du fichier 
+          <code>_config.yml</code>. Voir en-dessous pour les détails.
 
       </p></td>
     </tr>
@@ -36,18 +33,14 @@ following is a reference of the available data.
       <td><p><code>page</code></p></td>
       <td><p>
 
-        Page specific information + the <a href="../frontmatter/">YAML Front
-        Matter</a>. Custom variables set via the YAML front matter will be
-        available here. See below for details.
-
+        Information spécifique à la page + le <a href="../frontmatter/">Front Matter YAML </a>. Les variables personnalisées réglées via le front matter YAML seront disponibles ici. Voir ci-dessous pour les détails.
       </p></td>
     </tr>
     <tr>
       <td><p><code>content</code></p></td>
       <td><p>
 
-        In layout files, the rendered content of the Post or Page being wrapped.
-        Not defined in Post or Page files.
+        Dans les fichiers layout, le contenu restitué du Post ou de la Page étant emballé. Non défini dans les fichiers Post ou Page.
 
       </p></td>
     </tr>
@@ -55,9 +48,7 @@ following is a reference of the available data.
       <td><p><code>paginator</code></p></td>
       <td><p>
 
-        When the <code>paginate</code> configuration option is set, this
-        variable becomes available for use. See <a
-        href="../pagination/">Pagination</a> for details.
+        Quand l'option de configuration <code>paginate</code> est réglée, cette variable devient disponible pour usage. Voir <a href="../pagination/">Pagination</a> pour les détails.
 
       </p></td>
     </tr>
@@ -65,7 +56,7 @@ following is a reference of the available data.
 </table>
 </div>
 
-## Site Variables
+## Variables du Site
 
 <div class="mobile-side-scroller">
 <table>
@@ -80,7 +71,7 @@ following is a reference of the available data.
       <td><p><code>site.time</code></p></td>
       <td><p>
 
-        The current time (when you run the <code>jekyll</code> command).
+        L'heure actuelle (quand vous faites tourner la commande <code>jekyll</code>).
 
       </p></td>
     </tr>
@@ -88,7 +79,7 @@ following is a reference of the available data.
       <td><p><code>site.pages</code></p></td>
       <td><p>
 
-        A list of all Pages.
+        Une liste de toutes les Pages.
 
       </p></td>
     </tr>
@@ -96,7 +87,7 @@ following is a reference of the available data.
       <td><p><code>site.posts</code></p></td>
       <td><p>
 
-        A reverse chronological list of all Posts.
+        Une liste chronologique inversée de tous les Posts.
 
       </p></td>
     </tr>
@@ -104,11 +95,9 @@ following is a reference of the available data.
       <td><p><code>site.related_posts</code></p></td>
       <td><p>
 
-        If the page being processed is a Post, this contains a list of up to ten
-        related Posts. By default, these are low quality but fast to compute.
-        For high quality but slow to compute results, run the
-        <code>jekyll</code> command with the <code>--lsi</code> (latent semantic
-        indexing) option.
+        Si la page en train d'être traitée est un Post, ceci contient une liste jusqu'à dix posts en rapport. Par défaut, ceux-ci sont de faible qualité mais rapides à traiter. Pour de la haute qualité mais lente pour traiter les résultats, faites tourner 
+        <code>jekyll</code> command avec l'option <code>--lsi</code> (latent semantic
+        indexing).
 
       </p></td>
     </tr>
@@ -116,7 +105,7 @@ following is a reference of the available data.
       <td><p><code>site.categories.CATEGORY</code></p></td>
       <td><p>
 
-        The list of all Posts in category <code>CATEGORY</code>.
+        La liste de tous les Posts dans la catégorie <code>CATEGORY</code>.
 
       </p></td>
     </tr>
@@ -124,7 +113,7 @@ following is a reference of the available data.
       <td><p><code>site.tags.TAG</code></p></td>
       <td><p>
 
-        The list of all Posts with tag <code>TAG</code>.
+        La liste de tous les Posts avec le tag <code>TAG</code>.
 
       </p></td>
     </tr>
@@ -132,13 +121,13 @@ following is a reference of the available data.
       <td><p><code>site.[CONFIGURATION_DATA]</code></p></td>
       <td><p>
 
-        All the variables set via the command line and your
-        <code>_config.yml</code> are available through the <code>site</code>
-        variable. For example, if you have <code>url: http://mysite.com</code>
-        in your configuration file, then in your Posts and Pages it will be
-        stored in <code>site.url</code>. Jekyll does not parse changes to
-        <code>_config.yml</code> in <code>watch</code> mode, you must restart
-        Jekyll to see changes to variables.
+        Toutes les variables réglées via la ligne de commande et votre 
+        <code>_config.yml</code> sont disponibles par la variable <code>site</code>. 
+        Par exemple, si vous avez <code>url: http://monsite.com</code> 
+        dans votre fichier de configuration, alors pour vos Posts et Pages, il sera stocké
+        dans <code>site.url</code>. Jekyll ne parse pas les modifications de 
+        <code>_config.yml</code> en mode <code>watch</code>, vous devez redémarrer Jekyll 
+        pour voir les modifications faites aux variables.
 
       </p></td>
     </tr>
@@ -146,7 +135,7 @@ following is a reference of the available data.
 </table>
 </div>
 
-## Page Variables
+## Variables de Page
 
 <div class="mobile-side-scroller">
 <table>
@@ -161,7 +150,7 @@ following is a reference of the available data.
       <td><p><code>page.content</code></p></td>
       <td><p>
 
-        The un-rendered content of the Page.
+        Le contenu non-traité de la Page.
 
       </p></td>
     </tr>
@@ -169,7 +158,7 @@ following is a reference of the available data.
       <td><p><code>page.title</code></p></td>
       <td><p>
 
-        The title of the Page.
+        Le titre de la Page.
 
       </p></td>
     </tr>
@@ -177,7 +166,7 @@ following is a reference of the available data.
       <td><p><code>page.excerpt</code></p></td>
       <td><p>
 
-        The un-rendered excerpt of the Page.
+        L'extrait non-rendu de la Page.
 
       </p></td>
     </tr>
@@ -185,9 +174,8 @@ following is a reference of the available data.
       <td><p><code>page.url</code></p></td>
       <td><p>
 
-        The URL of the Post without the domain, but
-        with a leading slash, e.g.
-        <code>/2008/12/14/my-post.html</code>
+        L'URL du Post sans le domaine, mais avec un slash en tête, par ex.
+        <code>/2008/12/14/mon-post.html</code>
 
       </p></td>
     </tr>
@@ -195,11 +183,9 @@ following is a reference of the available data.
       <td><p><code>page.date</code></p></td>
       <td><p>
 
-        The Date assigned to the Post. This can be overridden in a Post’s front
-        matter by specifying a new date/time in the format
-        <code>YYYY-MM-DD HH:MM:SS</code> (assuming UTC), or
-        <code>YYYY-MM-DD HH:MM:SS +/-TTTT</code> (to specify a time zone using
-        an offset from UTC. e.g. <code>2008-12-14 10:30:00 +0900</code>).
+        La Date assignée au Post. Ceci peut être écrasé dans un front matter de Post en spécifiant un nouveau date/time dans le format
+        <code>AAAA-MM-JJ HH:MM:SS</code> (en supposant  UTC), ou
+        <code>AAAA-MM-JJ HH:MM:SS +/-TTTT</code> (pour spécifier une zone horaire en utilisant un décalage à partir d'UTC par ex. <code>2008-12-14 10:30:00 +0900</code>).
 
       </p></td>
     </tr>
@@ -207,8 +193,8 @@ following is a reference of the available data.
       <td><p><code>page.id</code></p></td>
       <td><p>
 
-        An identifier unique to the Post (useful in RSS feeds). e.g.
-        <code>/2008/12/14/my-post</code>
+        Un identifiant unique vers le Post (utilisé dans les flux RSS). Par ex.
+        <code>/2008/12/14/mon-post</code>
 
       </p></td>
     </tr>
@@ -216,12 +202,9 @@ following is a reference of the available data.
       <td><p><code>page.categories</code></p></td>
       <td><p>
 
-        The list of categories to which this post belongs. Categories are
-        derived from the directory structure above the <code>_posts</code>
-        directory. For example, a post at
-        <code>/work/code/_posts/2008-12-24-closures.md</code> would have this
-        field set to <code>['work', 'code']</code>. These can also be specified
-        in the <a href="../frontmatter/">YAML Front Matter</a>.
+        La liste des catégories vers laquelle ce post appartient. Les catégories sont dérivées à partir de la structure de répertoire au-dessus du répertoire  <code>_posts</code>
+        directory. Par exemple, un post sur 
+        <code>/work/code/_posts/2008-12-24-closures.md</code> aurait ce champ réglé sur <code>['work', 'code']</code>. Ceux-ci peuvent être aussi spécifiés dans le <a href="../frontmatter/">YAML Front Matter</a>.
 
       </p></td>
     </tr>
@@ -229,8 +212,7 @@ following is a reference of the available data.
       <td><p><code>page.tags</code></p></td>
       <td><p>
 
-        The list of tags to which this post belongs. These can be specified in
-        the <a href="../frontmatter/">YAML Front Matter</a>.
+        La liste des tags à laquelle ce post appartient. Celles-ci peuvent être spécifiées dans le <a href="../frontmatter/">Front MatterYAML</a>.
 
       </p></td>
     </tr>
@@ -238,8 +220,7 @@ following is a reference of the available data.
       <td><p><code>page.path</code></p></td>
       <td><p>
 
-        The path to the raw post or page. Example usage: Linking back to the
-        page or post’s source on GitHub. This can be overridden in the
+        Le chemin vers le post brut ou la page. Exemple d'usage : produire un lien retour vers la page ou la source du post sur GitHub. Ceci peut être écrasé dans le
         <a href="../frontmatter/">YAML Front Matter</a>.
 
       </p></td>
@@ -249,12 +230,12 @@ following is a reference of the available data.
 </div>
 
 <div class="note">
-  <h5>ProTip™: Use custom front-matter</h5>
+  <h5>ProTip™ : Utiliser un front-matter personnalisé</h5>
   <p>
 
-    Any custom front matter that you specify will be available under
-    <code>page</code>. For example, if you specify <code>custom_css: true</code>
-    in a page’s front matter, that value will be available as
+    Tout front matter personnalisé que vous spécifiez sera disponible sous 
+    <code>page</code>. Par exemple, si vous spécifiez  <code>custom_css: true</code>
+    dans un front matter de page, cette valeur sera disponible sous 
     <code>page.custom_css</code>.
 
   </p>
@@ -273,50 +254,49 @@ following is a reference of the available data.
   <tbody>
     <tr>
       <td><p><code>paginator.per_page</code></p></td>
-      <td><p>Number of Posts per page.</p></td>
+      <td><p>Nombre de Posts par page.</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.posts</code></p></td>
-      <td><p>Posts available for that page.</p></td>
+      <td><p>Posts disponibles pour cette page.</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.total_posts</code></p></td>
-      <td><p>Total number of Posts.</p></td>
+      <td><p>Nombre total de posts.</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.total_pages</code></p></td>
-      <td><p>Total number of Pages.</p></td>
+      <td><p>Nombre total de Pages.</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.page</code></p></td>
-      <td><p>The number of the current page.</p></td>
+      <td><p>Le numéro de la page en cours.</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.previous_page</code></p></td>
-      <td><p>The number of the previous page.</p></td>
+      <td><p>Le numéro de la page précédente.</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.previous_page_path</code></p></td>
-      <td><p>The path to the previous page.</p></td>
+      <td><p>Le chemin vers la page précédente.</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.next_page</code></p></td>
-      <td><p>The number of the next page.</p></td>
+      <td><p>Le numéro de la page suivante.</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.next_page_path</code></p></td>
-      <td><p>The path to the next page.</p></td>
+      <td><p>Le chemin vers la prochaine page.</p></td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <div class="note info">
-  <h5>Paginator variable availability</h5>
+  <h5>Disponibilité de variable paginator</h5>
   <p>
 
-    These are only available in index files, however they can be located in a
-    subdirectory, such as <code>/blog/index.html</code>.
+    Celles-ci sont uniquement disponibles dans les fichiers index, néanmoins elles peuvent être situées dans un sous-répertoire, comme dans <code>/blog/index.html</code>.
 
   </p>
 </div>

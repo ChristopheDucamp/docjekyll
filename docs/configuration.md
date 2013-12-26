@@ -6,27 +6,21 @@ next_section: frontmatter
 permalink: /docs/configuration/
 ---
 
-Jekyll allows you to concoct your sites in any way you can dream up, and it’s
-thanks to the powerful and flexible configuration options that this is possible.
-These options can either be specified in a `_config.yml` file placed in your
-site’s root directory, or can be specified as flags for the `jekyll` executable
-in the terminal.
+Jekyll vous permet de concocter vos sites comme vous en avez rêvé, et ceci grâce aux options puissantes et flexibles de configurations qui rendent cela possible. Ces options peuvent être spécifiées soit dans un fichier `_config.yml` placé dans le répertoire racine de votre site, ou directement dans le terminal sous forme d'instructions pour l'exécutable `jekyll`.
 
-## Configuration Settings
+## Paramètres de Configuration
 
-### Global Configuration
+### Configuration Globale
 
-The table below lists the available settings for Jekyll, and the various <code
-class="option">options</code> (specified in the configuration file) and <code
-class="flag">flags</code> (specified on the command-line) that control them.
+Le tableau ci-dessous liste les réglages disponibles pour Jekyll, et les différentes <code class="option">options</code> (spécifiées dans le fichier de configuration) et les <code class="flag">flags</code> (spécifiées sur la ligne de commande) qui les contrôlent.
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Setting</th>
+      <th>Réglage</th>
       <th>
-        <span class="option">Options</span> and <span class="flag">Flags</span>
+        <span class="option">Options</span> et <span class="flag">Flags</span>
       </th>
     </tr>
   </thead>
@@ -34,7 +28,7 @@ class="flag">flags</code> (specified on the command-line) that control them.
     <tr class='setting'>
       <td>
         <p class='name'><strong>Site Source</strong></p>
-        <p class='description'>Change the directory where Jekyll will read files</p>
+        <p class='description'>Modifie le répertoire où Jekyll lira les fichiers</p>
       </td>
       <td class="align-center">
         <p><code class="option">source: DIR</code></p>
@@ -43,8 +37,8 @@ class="flag">flags</code> (specified on the command-line) that control them.
     </tr>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Site Destination</strong></p>
-        <p class='description'>Change the directory where Jekyll will write files</p>
+        <p class='name'><strong>Site de Destination</strong></p>
+        <p class='description'>Modifie le répertoire où Jekyll écrira les fichiers </p>
       </td>
       <td class="align-center">
         <p><code class="option">destination: DIR</code></p>
@@ -53,8 +47,8 @@ class="flag">flags</code> (specified on the command-line) that control them.
     </tr>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Safe</strong></p>
-        <p class='description'>Disable <a href="../plugins/">custom plugins</a>.</p>
+        <p class='name'><strong>Sécurité</strong></p>
+        <p class='description'>Désactive les <a href="../plugins/">plugins personnalisés</a>.</p>
       </td>
       <td class="align-center">
         <p><code class="option">safe: BOOL</code></p>
@@ -63,8 +57,8 @@ class="flag">flags</code> (specified on the command-line) that control them.
     </tr>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Exclude</strong></p>
-        <p class="description">Exclude directories and/or files from the conversion</p>
+        <p class='name'><strong>Exclure</strong></p>
+        <p class="description">Exclure les répertoires et/ou les fichiers à partir de la conversion</p>
       </td>
       <td class='align-center'>
         <p><code class="option">exclude: [DIR, FILE, ...]</code></p>
@@ -72,11 +66,10 @@ class="flag">flags</code> (specified on the command-line) that control them.
     </tr>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Include</strong></p>
+        <p class='name'><strong>Inclure</strong></p>
         <p class="description">
-          Force inclusion of directories and/or files in the conversion.
-          <code>.htaccess</code> is a good example since dotfiles are excluded
-          by default.
+          Force l'inclusion de répertoires et/ou fichiers dans la conversion. 
+          <code>.htaccess</code> est un bon exemple parce que les fichiers à point sont exclus par défaut.
         </p>
       </td>
       <td class='align-center'>
@@ -85,14 +78,9 @@ class="flag">flags</code> (specified on the command-line) that control them.
     </tr>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Time Zone</strong></p>
+        <p class='name'><strong>Fuseau Horaire</strong></p>
         <p class="description">
-            Set the time zone for site generation. This sets the <code>TZ</code>
-            environment variable, which Ruby uses to handle time and date
-            creation and manipulation. Any entry from the
-            <a href="http://en.wikipedia.org/wiki/Tz_database">IANA Time Zone
-            Database</a> is valid, e.g. <code>America/New_York</code>. The default
-            is the local time zone, as set by your operating system.
+            Règle la zone horaire. Ceci régle la variable d'environnement <code>TZ</code> que Ruby utilise pour gérer la création et la manipulation de l'heure et la date. Toute entrée provenant de la <a href="http://en.wikipedia.org/wiki/Tz_database">Database IANA Time Zone</a> est valide, par ex. <code>America/New_York</code>. La valeur par défaut est la zone horaire locale, telle que réglée par votre système d'exploitation.
         </p>
       </td>
       <td class='align-center'>
@@ -101,14 +89,14 @@ class="flag">flags</code> (specified on the command-line) that control them.
     </tr>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Encoding</strong></p>
+        <p class='name'><strong>Encodage</strong></p>
         <p class="description">
-            Set the encoding of files by name. Only available for Ruby
-            1.9 or later).
-            The default value is nil, which use Ruby default,
+            Règle l'encodage des fichiers par nom. Seulement disponible pour Ruby
+            1.9 ou suivante).
+            La valeur par défaut est nil, qui utilise la valeur par défaut de Ruby,
             <code>ASCII-8BIT</code>.
-            Available encoding for the ruby in use, can be shown by
-            command <code>ruby -e 'puts Encoding::list.join("\n")'</code>
+            L'encodage disponible pour le ruby en utilisation, peut être affiché par la commande 
+            <code>ruby -e 'puts Encoding::list.join("\n")'</code>
         </p>
       </td>
       <td class='align-center'>
@@ -119,21 +107,21 @@ class="flag">flags</code> (specified on the command-line) that control them.
 </table>
 </div>
 
-### Build Command Options
+### Options de la Commande Build
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Setting</th>
-      <th><span class="option">Options</span> and <span class="flag">Flags</span></th>
+      <th>Réglage</th>
+      <th><span class="option">Options</span> et <span class="flag">Flags</span></th>
     </tr>
   </thead>
   <tbody>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Regeneration</strong></p>
-        <p class='description'>Enable auto-regeneration of the site when files are modified.</p>
+        <p class='name'><strong>Régéneration</strong></p>
+        <p class='description'>Permet l'auto-régénération du site quand les fichiers sont modifiés.</p>
       </td>
       <td class="align-center">
         <p><code class="flag">-w, --watch</code></p>
@@ -142,7 +130,7 @@ class="flag">flags</code> (specified on the command-line) that control them.
     <tr class='setting'>
       <td>
         <p class='name'><strong>Configuration</strong></p>
-        <p class="description">Specify config files instead of using <code>_config.yml</code> automatically. Settings in later files override settings in earlier files.</p>
+        <p class="description">Spécifie les fichiers de config au lieu d'utiliser <code>_config.yml</code> automatiquement. Les réglages dans les fichiers ultérieurs écraseront les réglages dans les fichiers plus anciens.</p>
       </td>
       <td class='align-center'>
         <p><code class="flag">--config FILE1[,FILE2,...]</code></p>
@@ -151,7 +139,7 @@ class="flag">flags</code> (specified on the command-line) that control them.
     <tr class='setting'>
       <td>
         <p class='name'><strong>Drafts</strong></p>
-        <p class="description">Process and render draft posts.</p>
+        <p class="description">Processus et rendu des posts brouillons.</p>
       </td>
       <td class='align-center'>
         <p><code class="flag">--drafts</code></p>
@@ -159,8 +147,8 @@ class="flag">flags</code> (specified on the command-line) that control them.
     </tr>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Future</strong></p>
-        <p class="description">Publish posts with a future date.</p>
+        <p class='name'><strong>Futur</strong></p>
+        <p class="description">Publie les posts avec une date future.</p>
       </td>
       <td class='align-center'>
         <p><code class="option">future: BOOL</code></p>
@@ -170,7 +158,7 @@ class="flag">flags</code> (specified on the command-line) that control them.
     <tr class='setting'>
       <td>
         <p class='name'><strong>LSI</strong></p>
-        <p class="description">Produce an index for related posts.</p>
+        <p class="description">Produit un index pour les posts en rapport.</p>
       </td>
       <td class='align-center'>
         <p><code class="option">lsi: BOOL</code></p>
@@ -179,8 +167,8 @@ class="flag">flags</code> (specified on the command-line) that control them.
     </tr>
     <tr class='setting'>
       <td>
-        <p class='name'><strong>Limit Posts</strong></p>
-        <p class="description">Limit the number of posts to parse and publish.</p>
+        <p class='name'><strong>Limitation des Posts</strong></p>
+        <p class="description">Limite le nombre de posts à analyser et publier.</p>
       </td>
       <td class='align-center'>
         <p><code class="option">limit_posts: NUM</code></p>
@@ -191,25 +179,23 @@ class="flag">flags</code> (specified on the command-line) that control them.
 </table>
 </div>
 
-### Serve Command Options
+### Options de la Commande Serve
 
-In addition to the options below, the `serve` sub-command can accept any of the options
-for the `build` sub-command, which are then applied to the site build which occurs right
-before your site is served.
+En plus des options ci-dessous, la sous-commande `serve` peut accepter n'importe quelle option pour la sous-commande `build`, des options qui sont alors appliquées à la construction du site qui se déroule juste avant que votre site ne soit servi.
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Setting</th>
-      <th><span class="option">Options</span> and <span class="flag">Flags</span></th>
+      <th>Réglage</th>
+      <th><span class="option">Options</span> et <span class="flag">Flags</span></th>
     </tr>
   </thead>
   <tbody>
     <tr class='setting'>
       <td>
         <p class='name'><strong>Local Server Port</strong></p>
-        <p class='description'>Listen on the given port.</p>
+        <p class='description'>Écoute le port donné.</p>
       </td>
       <td class="align-center">
         <p><code class="option">port: PORT</code></p>
@@ -219,7 +205,7 @@ before your site is served.
     <tr class='setting'>
       <td>
         <p class='name'><strong>Local Server Hostname</strong></p>
-        <p class='description'>Listen at the given hostname.</p>
+        <p class='description'>Écoute le nom d'hôte donné.</p>
       </td>
       <td class="align-center">
         <p><code class="option">host: HOSTNAME</code></p>
@@ -229,7 +215,7 @@ before your site is served.
     <tr class='setting'>
       <td>
         <p class='name'><strong>Base URL</strong></p>
-        <p class='description'>Serve the website from the given base URL</p>
+        <p class='description'>Sert le site web à partir de l'URL de base donnée</p>
       </td>
       <td class="align-center">
         <p><code class="option">baseurl: URL</code></p>
@@ -251,25 +237,21 @@ before your site is served.
 </div>
 
 <div class="note warning">
-  <h5>Do not use tabs in configuration files</h5>
+  <h5>N'utilisez pas de tabulations dans les fichiers de configuration</h5>
   <p>
-    This will either lead to parsing errors, or Jekyll will revert to the
-    default settings. Use spaces instead.
+    Ceci conduira soit à des erreurs de parsage, ou Jekyll réinitiliasera les paramètres par défaut. Utilisez des espaces à la place.
   </p>
 </div>
 
-## Default Configuration
+## Configuration par Défaut
 
-Jekyll runs with the following configuration options by default. Unless
-alternative settings for these options are explicitly specified in the
-configuration file or on the command-line, Jekyll will run using these options.
+Jekyll fonctionne par défaut avec les options de configuration qui suivent. A moins que des paramètres alternatifs pour ces options ne soient explicitement spécifiés dans le fichier de configuration ou sur la ligne de commande, Jekyll tournera en utilisant ces otpions.
 
 <div class="note warning">
-  <h5>There are two unsupported kramdown options</h5>
+  <h5>Voici deux options  kramdown non supportées</h5>
   <p>
-    Please note that both <code>remove_block_html_tags</code> and
-    <code>remove_span_html_tags</code> are currently unsupported in Jekyll due to the
-    fact that they are not included within the kramdown HTML converter.
+    Notez SVP qu'à la fois <code>remove_block_html_tags</code> et 
+    <code>remove_span_html_tags</code> ne sont à cette heure pas supportés par Jekyll du fait qu'ils ne sont pas inclus dans le convertisseur HTML kramdown.
   </p>
 </div>
 
@@ -316,6 +298,7 @@ maruku:
   png_engine: blahtex
   png_dir:    images/latex
   png_url:    /images/latex
+  fenced_code_blocks: true
 
 rdiscount:
   extensions: []
@@ -323,6 +306,7 @@ rdiscount:
 redcarpet:
   extensions: []
 
+kramdown:
 kramdown:
   auto_ids: true
   footnote_nr: 1
@@ -338,34 +322,34 @@ kramdown:
     coderay_tab_width: 4
     coderay_bold_every: 10
     coderay_css: style
-
+    
 redcloth:
   hard_breaks: true
 {% endhighlight %}
 
 
-## Markdown Options
+## Options Markdown 
 
-The various Markdown renderers supported by Jekyll sometimes have extra options available.
+Les différents analyseurs Markdown supportés par défaut ont des options supplémentaires disponibles.
 
 ### Redcarpet
 
-Redcarpet can be configured by providing an `extensions` sub-setting, whose value should be an array of strings. Each string should be the name of one of the `Redcarpet::Markdown` class's extensions; if present in the array, it will set the corresponding extension to `true`.
+Redcarpet peut être configuré en fournissant un sous-réglage `extensions`, dont la valeur devrait être une  array de strings. Chaque chaîne devrait être le nom d'une des extensions de classes `Redcarpet::Markdown` ; si présent dans l'array, elle règlera dans l'extension correspondante à `true`.
 
-Jekyll handles two special Redcarpet extensions:
+Jekyll gère deux extensions spéciales Redcarpet :
 
-- `no_fenced_code_blocks` --- By default, Jekyll sets the `fenced_code_blocks` extension (for delimiting code blocks with triple tildes or triple backticks) to `true`, probably because GitHub's eager adoption of them is starting to make them inescapable. Redcarpet's normal `fenced_code_blocks` extension is inert when used with Jekyll; instead, you can use this inverted version of the extension for disabling fenced code.
+- `no_fenced_code_blocks` --- Par défaut, Jekyll règle l'extension `fenced_code_blocks` (pour délimiter les blocs de code avec trois tildes ou trois guillemets arrière) sur `true`, probablement parce que l'adoption de GitHub commence à les rendre inéchappables. L'extension normale de Redcarpet `fenced_code_blocks` est inerte quand elle est utilisée avec Jekyll ; au lieu de cela, vous pouvez utiliser cette version inversée de l'extension pour désactiver le code clos.
 
-    Note that you can also specify a language for highlighting after the first delimiter:
+    Notez que vous pouvez aussi spécifier un langage pour mettre en valeur après le premier délimiteur :
 
         ```ruby
         # ...ruby code
         ```
 
-    With both fenced code blocks and pygments enabled, this will statically highlight the code; without pygments, it will add a `class="LANGUAGE"` attribute to the `<code>` element, which can be used as a hint by various JavaScript code highlighting libraries.
-- `smart` --- This pseudo-extension turns on SmartyPants, which converts straight quotes to curly quotes and runs of hyphens to em (`---`) and en (`--`) dashes.
+    Avec à la fois les blocs de code entourés et pygments autorisé, ceci mettra statiquement en valeur le code ; sans pygments, ceci ajoutera un attribut `class="LANGUAGE"` à l'élément `<code>`, qui peut être utilisé comme un truc par différentes bibliothèques JavaScript pour mettre en avant le code.
+- `smart` --- Cette pseudo-extension fonctionne sur SmartyPants, qui convertit les citations directes en guillemets élégants et qui convertit les citations droites en guillemets inclinés et transforme les soulignés en em (`---`) et les tirets (`--`) en ?.
 
-All other extensions retain their usual names from Redcarpet, and no renderer options aside from `smart` can be specified in Jekyll. [A list of available extensions can be found in the Redcarpet README file.][redcarpet_extensions] Make sure you're looking at the README for the right version of Redcarpet: Jekyll currently uses v2.2.x, and extensions like `footnotes` and `highlight` weren't added until after version 3.0.0. The most commonly used extensions are:
+Toutes les autres extensions conservent leurs noms usuels à partir de RedCarpet, and aucune option de rendu hormis `smart` ne peut être spécifiée dans Jekyll. [Une liste d'extensions disponibles peut être trouvée dans le fichier README de Redcarpet.][redcarpet_extensions] Assurez-vous que vous regardez bien la bonne version de Redcarpet : Jekyll utilise actuellement la v2.2.x, et les extensions comme `footnotes` et  `highlight` n'ont pas été ajoutées après la version 3.0.0. Les extensions les plus communément utilisées sont : 
 
 - `tables`
 - `no_intra_emphasis`
@@ -375,9 +359,9 @@ All other extensions retain their usual names from Redcarpet, and no renderer op
 
 ### Kramdown
 
-In addition to the defaults mentioned above, you can also turn on recognition of Github Flavored Markdown by passing an `input` option with a value of "GFM".
+En plus de valeurs par défaut citées au-dessus, vous pouvez aussi activer la reconnaissance de Github Flavored Markdown en passant une option `input` avec une valeur de "GFM".
 
-For example, in your `_config.yml`:
+Par exemple, dans votre fichier `_config.yml`:
 
     kramdown:
       input: GFM

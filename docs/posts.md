@@ -1,103 +1,67 @@
 ---
 layout: docs
-title: Writing posts
+title: Écrire des posts
 prev_section: frontmatter
 next_section: drafts
 permalink: /docs/posts/
 ---
 
-One of Jekyll’s best aspects is that it is “blog aware”. What does this mean,
-exactly? Well, simply put, it means that blogging is baked into Jekyll’s
-functionality. If you write articles and publish them online, this means that
-you can publish and maintain a blog simply by managing a folder of text-files on
-your computer. Compared to the hassle of configuring and maintaining databases
-and web-based CMS systems, this will be a welcome change!
+L'un des aspects les plus intéressants de Jekyll est qu'il est “conscient des blogs”. Qu'est-ce que ça veut dire plus précisément ? Bon. Dit plus simplement, cela signifie que le blogging est intégré dans les fonctionnalités de Jekyll. Si vous écrivez des articles et les publiez en ligne, ceci veut dire que vous pouvez publier et maintenir simplement un blog en gérant un répertoire ou des fichiers-texte sur votre ordinateur. Si vous comparez cela aux tracas de configuration et de maintenance des bases de données et des systèmes de gestion de contenus basés sur le web, ceci sera un changement bienvenu.
 
-## The Posts Folder
+## Le Répertoire Posts
 
-As explained on the [directory structure](../structure/) page, the `_posts`
-folder is where your blog posts will live. These files can be either
-[Markdown](http://daringfireball.net/projects/markdown/) or
-[Textile](http://textile.sitemonks.com/) formatted text files, and as long as
-they have [YAML front-matter](../frontmatter/), they will be converted from their
-source format into an HTML page that is part of your static site.
+Comme c'est expliqué sur la page [Structure des Répertoires](../structure/), le répertoire `_posts` est l'endroit où vivront vos posts de blog. Ces fichiers peuvent être soit formatés sous forme de fichiers texte [Markdown](http://daringfireball.net/projects/markdown/) ou [Textile](http://textile.sitemonks.com/), et tant qu'ils ont un [front-matter YAML](../frontmatter/), ils seront convertis à partir du format source à l'intérieur d'une page HTML qui fera partie de votre site statique.
 
-### Creating Post Files
+### Créer des Fichiers Post
 
-To create a new post, all you need to do is create a new file in the `_posts`
-directory. How you name files in this folder is important. Jekyll requires blog
-post files to be named according to the following format:
+Pour créer un nouveau post, tout ce que vous devez faire c'est créer un nouveau fichier dans le répertoire `_posts`. Le nom que vous allez donner à ces fichiers dans ce répertoire est important. Jekyll requiert que les fichiers des posts de blog soient nommées selon le format suivant : 
 
 {% highlight bash %}
-YEAR-MONTH-DAY-title.MARKUP
+ANNEE-MOIS-JOUR-title.MARKUP
 {% endhighlight %}
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit
-numbers, and `MARKUP` is the file extension representing the format used in the
-file. For example, the following are examples of valid post filenames:
+Où `ANNEE` est un nombre à quatre chiffres, `MOIS` et `JOUR` sont tous deux des nombres à deux chiffres, et `MARKUP` est l'extension-fichier représentant le format utilisé pour le fichier. Par exemple, les exemples qui suivent sont des noms de fichiers de post valides : 
 
 {% highlight bash %}
-2011-12-31-new-years-eve-is-awesome.md
-2012-09-12-how-to-write-a-blog.textile
+2013-12-31-la-nouvelle-annee-est-merveilleuse.md
+2013-09-12-comment-ecrire-un-billet-de-blog.textile
 {% endhighlight %}
 
-### Content Formats
+### Formats de Contenu
 
-All blog post files must begin with [YAML front- matter](../frontmatter/). After
-that, it's simply a matter of deciding which format you prefer. Jekyll supports
-two popular content markup formats:
-[Markdown](http://daringfireball.net/projects/markdown/) and
-[Textile](http://textile.sitemonks.com/). These formats each have their own way
-of marking up different types of content within a post, so you should
-familiarize yourself with these formats and decide which one best suits your
-needs.
+Tous les fichiers de post de blog commencent par un [front- matter YAML](../frontmatter/). Après ça, la seule question à vous poser est de décider du format que vous préférez. Jekyll supporte deux formats de contenu très connus : [Markdown](http://daringfireball.net/projects/markdown/) et [Textile](http://textile.sitemonks.com/). Ces formats ont chacun leurs  façons particulières de marquer différents types de contenus dans un post. Par conséquent, vous devriez vous familiariser avec ces formats puis décider lequel correspond le mieux à vos besoins.
 
-## Including images and resources
+## Inclure des images et ressources
 
-Chances are, at some point, you'll want to include images, downloads, or other
-digital assets along with your text content. While the syntax for linking to
-these resources differs between Markdown and Textile, the problem of working out
-where to store these files in your site is something everyone will face.
+Il est plus que probable qu'une fois parvenu à un certain niveau, vous ayez envie d'ajouter des images, téléchargements, ou tout autre actif digital pouvant cohabiter avec votre contenu texte. Même si la syntaxe pour lier vers ces ressources diffère entre Markdown et Textile, le problème de trouver l'endroit où stocker ces fichiers est quelque chose que tout le monde rencontrera.
 
-Because of Jekyll’s flexibility, there are many solutions to how to do this. One
-common solution is to create a folder in the root of the project directory
-called something like `assets` or `downloads`, into which any images, downloads
-or other resources are placed. Then, from within any post, they can be linked to
-using the site’s root as the path for the asset to include. Again, this will
-depend on the way your site’s (sub)domain and path are configured, but here some
-examples (in Markdown) of how you could do this using the `site.url` variable in
-a post.
+Du fait de la flexibilité de Jekyll, il existe tout un tas de solutions pour faire ça. Une solution commune est de créer un dossier dans la racine du répertoire projet appelé parfois `assets` ou `downloads`, à l'intérieur duquel seront placés toutes les images, téléchargements ou autres ressources. Ensuite, à partir de l'intérieur de n'importe quel post, ils peuvent être liés en utilisant la racine du site comme chemin pour l'actif à inclure. De nouveau, ceci dépendra de la manière dont le (sous)domaine et le chemin de votre site sont configurés, mais voici quelques exemples (en Markdown) sur la façon de faire ça en utilisant la variable `site.url` dans un post.
 
-Including an image asset in a post:
+Inclure un objet image dans un post : 
 
 {% highlight text %}
-… which is shown in the screenshot below:
-![My helpful screenshot]({% raw %}{{ site.url }}{% endraw %}/assets/screenshot.jpg)
+… qui est montré dans l'écran en-dessous:
+![Mon screenshot d'aide]({% raw %}{{ site.url }}{% endraw %}/assets/screenshot.jpg)
 {% endhighlight %}
 
-Linking to a PDF for readers to download:
+Faire un lien vers un PDF offert en téléchargement :
 
 {% highlight text %}
-… you can [get the PDF]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf) directly.
+… vous pouvez [télécharger le PDF]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf) directement.
 {% endhighlight %}
 
 <div class="note">
-  <h5>ProTip™: Link using just the site root URL</h5>
+  <h5>ProTruc™ : Lier en utilisant simplement l'URL racine du site</h5>
   <p>
-    You can skip the <code>{% raw %}{{ site.url }}{% endraw %}</code> variable
-    if you <strong>know</strong> your site will only ever be displayed at the
-    root URL of your domain. In this case you can reference assets directly with
-    just <code>/path/file.jpg</code>.
+    Vous pouvez ôter la variable <code>{% raw %}{{ site.url }}{% endraw %}</code> 
+    si vous <strong>savez</strong> que votre site sera toujours affiché sur l'URL racine de votre domaine. Dans ce cas vous pouvez référencer les actifs directement avec simplement le <code>/path/file.jpg</code>.
   </p>
 </div>
 
-## Displaying an index of posts
+## Afficher un index des posts
 
-It’s all well and good to have posts in a folder, but a blog is no use unless
-you have a list of posts somewhere. Creating an index of posts on another page
-(or in a [template](../templates/)) is easy, thanks to the [Liquid template
-language](http://wiki.shopify.com/Liquid) and its tags. Here’s a basic example of how
-to create a list of links to your blog posts:
+C'est très bien d'avoir des posts dans un répertoire, mais un blog ne sert à rien si vous ne disposez pas quelque part d'une liste des posts. Créer un index de posts sur une autre page 
+(ou dans un [template](../templates/)) est facile, grâce au [langage de template Liquid](http://wiki.shopify.com/Liquid) et ses tags. Voici un exemple basique pour créer une liste de liens vers vos posts de blog : 
 
 {% highlight html %}
 <ul>
@@ -109,17 +73,12 @@ to create a list of links to your blog posts:
 </ul>
 {% endhighlight %}
 
-Of course, you have full control over how (and where) you display your posts,
-and how you structure your site. You should read more about [how templates
-work](../templates/) with Jekyll if you want to know more.
+Bien sûr, vous avez une maîtrise complète sur la façon (et où) de présenter vos posts, et comment vous structurez votre site. Pour en savoir plus, vous devriez lire [comment fonctionnent les templates](../templates/) avec Jekyll.
 
-## Post excerpts
+## Extraits de Post
 
-Each post automatically takes the first block of text, from the beginning of the content
-to the first occurrence of `excerpt_separator`, and sets it as the `post.excerpt`.
-Take the above example of an index of posts. Perhaps you want to include
-a little hint about the post's content by adding the first paragraph of each of your
-posts:
+Chaque post prend automatiquement le premier bloc de texte, à partir du début du contenu jusqu'à la première occurrence de `excerpt_separator`, et le règle comme le `post.excerpt`.
+Prenez l'exemple du-dessus d'un index de posts. Peut-être que vous voulez inclure un petit truc concernant le contenu du post en ajoutant le premier paragraphe de vos posts : 
 
 {% highlight html %}
 <ul>
@@ -132,15 +91,12 @@ posts:
 </ul>
 {% endhighlight %}
 
-If you don't like the automatically-generated post excerpt, it can be overridden by adding
-`excerpt` to your post's YAML front-matter. Completely disable it by setting
-your `excerpt_separator` to `""`.
+Si vous n'aimez pas l'extrait de post automatiquement généré, il peut être écrasé en ajoutant 
+`excerpt` au front-matter YAML de votre post. Vous pouvez le désactiver complètement en réglant votre `excerpt_separator` sur `""`.
 
-## Highlighting code snippets
+## Coloration syntaxique des fragments de code 
 
-Jekyll also has built-in support for syntax highlighting of code snippets using
-Pygments, and including a code snippet in any post is easy. Just use the
-dedicated Liquid tag as follows:
+Jekyll a aussi un support intégré pour la coloration syntaxique des fragments de code en utilisant Pygments, et inclure un fragment de code dans n'importe quel post est facile. Utilisez simplement le tag dédié Liquid comme suit : 
 
 {% highlight text %}
 {% raw %}{% highlight ruby %}{% endraw %}
@@ -154,7 +110,7 @@ end
 {% raw %}{% endhighlight %}{% endraw %}
 {% endhighlight %}
 
-And the output will look like this:
+Et le rendu s'affichera comme ça : 
 
 {% highlight ruby %}
 def show
@@ -167,15 +123,11 @@ end
 {% endhighlight %}
 
 <div class="note">
-  <h5>ProTip™: Show line numbers</h5>
+  <h5>ProTruc™ : Afficher les numéros de ligne</h5>
   <p>
-    You can make code snippets include line-numbers by adding the word
-    <code>linenos</code> to the end of the opening highlight tag like this:
+    Vous pouvez produire des fragments de code en incluant des numéros de ligne en ajoutant le mot  <code>linenos</code> à la fin du tag d'ouverture de coloration syntaxique code comme ceci : 
     <code>{% raw %}{% highlight ruby linenos %}{% endraw %}</code>.
   </p>
 </div>
 
-These basics should be enough to get you started writing your first posts. When
-you’re ready to dig into what else is possible, you might be interested in doing
-things like [customizing post permalinks](../permalinks/) or using [custom
-variables](../variables/) in your posts and elsewhere on your site.
+Ces fondamentaux devraient vous suffire pour écrire vos premiers posts. Quand vous serez prêts pour plonger dans tout ce qu'il est possible de faire, vous pourriez être intéressé par des trucs comme [personnaliser les permaliens des posts](../permalinks/) ou utiliser des [variables personnalisées](../variables/) dans vos posts et n'importe où sur votre site.

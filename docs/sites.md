@@ -1,14 +1,12 @@
 ---
 layout: docs
-title: Sites using Jekyll
+title: Sites utilisant Jekyll
 prev_section: troubleshooting
 next_section: resources
 permalink: /docs/sites/
 ---
 
-It’s interesting to see what designs and features others have come up
-with. Below are some Jekyll-powered blogs which were hand-picked for
-learning purposes.
+Il est intéressant de voir quels sont les designs et fonctionnalités que d'autres sont parvenus à construire. Ci-dessous, quelques blogs-motorisés-par-Jekyll ont été sélectionnés manuellement à des fins d'apprentissage.
 
 - [Tom Preston-Werner](http://tom.preston-werner.com/)
     ([source](http://github.com/mojombo/mojombo.github.com))
@@ -23,7 +21,7 @@ learning purposes.
 - [Scott Chacon](http://schacon.github.com)
     ([source](https://github.com/schacon/schacon.github.com))
 
-If you would like to explore more examples, you can find a list of sites
-and their sources on the ["Sites" page in the Jekyll wiki][jekyll-sites].
+Si vous souhaitez explorer plus d'exemples, vous pouvez trouver une liste de sites et leurs sources sur la [page "Sites" dans le wiki Jekyll][jekyll-sites].
+
 
 [jekyll-sites]: {{ site.repository }}/wiki/Sites

@@ -1,91 +1,66 @@
 ---
 layout: docs
-title: GitHub Pages
+title: Pages GitHub
 prev_section: extras
 next_section: deployment-methods
 permalink: /docs/github-pages/
 ---
 
-[GitHub Pages](http://pages.github.com) are public web pages for users,
-organizations, and repositories, that are freely hosted on GitHub's
-[github.io]() domain or on a custom domain name of your choice. GitHub Pages are
-powered by Jekyll behind the scenes, so in addition to supporting regular HTML
-content, they’re also a great way to host your Jekyll-powered website for free.
+Les [Pages GitHub](http://pages.github.com) sont des pages publiques web pour les utilisateurs, organisations et dépôts, qui sont hébergées gratuitement sur le domaine 
+[github.io](http://github.io) de GitHub ou sur un nom de domaine personnalisé de votre choix. 
+Les Pages GitHub sont motorisées en coulisses par Jekyll, aussi outre le fait 
+de supporter du contenu HTML régulier, c'est aussi un moyen génial d'héberger gratuitement votre site web motorisé-par-Jekyll.
 
-## Deploying Jekyll to GitHub Pages
+## Déployer Jekyll sur des Pages GitHub
 
-GitHub Pages work by looking at certain branches of repositories on GitHub.
-There are two basic types available: user/organization pages and project pages.
-The way to deploy these two types of sites are nearly identical, except for a
-few minor details.
+Les Pages GitHub fonctionnent en regardant certaines branches des dépôts sur GitHub.
+Il existe deux types basiques disponibles les **pages utilisateur/organisation** et **les pages-projet**.
+Le moyen de déployer ces deux types de sites sont presque identiques, hormis quelques détails mineurs.
 
-### User and Organization Pages
+### Pages Utilisateur et Organisation
 
-User and organization pages live in a special GitHub repository dedicated to
-only the GitHub Pages files. This repository must be named after the account
-name. For example, [@mojombo’s user page
-repository](https://github.com/mojombo/mojombo.github.io) has the name
-`mojombo.github.io`.
+Les pages utilisateur et organisation vivent dans un dépôt GitHub dédié 
+uniquement pour les fichiers de Pages GitHub. Ce dépôt doit être nommé après le nom du compte. 
+Par exemple, [la page utilisateur du dépôt de @mojombo](https://github.com/mojombo/mojombo.github.io) s'appelle `mojombo.github.io`.
 
-Content from the `master` branch of your repository will be used to build and
-publish the GitHub Pages site, so make sure your Jekyll site is stored there.
+Le contenu provenant de la branche `master` de votre dépôt sera utilisé pour construire et publier le site Pages GitHub, aussi assurez-vous que votre site Jekyll soit bien stocké à cet endroit.
 
 <div class="note info">
-  <h5>Custom domains do not affect repository names</h5>
+  <h5>Les noms de domaine personnalisés n'affectent pas les noms des dépôts</h5>
   <p>
-    GitHub Pages are initially configured to live under the
-    <code>username.github.io</code> subdomain, which is why repositories must
-    be named this way <strong>even if a custom domain is being used</strong>.
+    Les Pages GitHub Pages sont initialement configurées pour vivre sous le 
+    sous-domaine <code>nomutilisateur.github.io</code>, c'est donc la raison pour laquelle les dépôts doivent être nommés de cette façon <strong>même si un domaine personnalisé est utilisé</strong>.
   </p>
 </div>
 
-### Project Pages
+### Pages Projet 
 
-Unlike user and organization Pages, Project Pages are kept in the same
-repository as the project they are for, except that the website content is
-stored in a specially named `gh-pages` branch. The content of this branch will
-be rendered using Jekyll, and the output will become available under a subpath
-of your user pages subdomain, such as `username.github.io/project` (unless a
-custom domain is specified—see below).
+À la différence des Pages utilisateur et organisation, les Pages Projet sont 
+conservées dans le même dépôt pour lesquelles elles sont destinées, si ce n'est que que le contenu du site est stocké dans une branche spécialement nommée `gh-pages`.
+Le contenu de cette branche sera restitué en utilisant Jekyll, et l'*output* sera disponible sous un sous-chemin de votre sous-domaine de pages utiliateur, tel que 
+`nom-utilisateur.github.io/projet` (à moins qu'un domaine personnalisé ne soit spécifié plus bas).
 
-The Jekyll project repository itself is a perfect example of this branch
-structure—the [master branch]({{ site.repository }}) contains the
-actual software project for Jekyll, however the Jekyll website (that you’re
-looking at right now) is contained in the [gh-pages
-branch]({{ site.repository }}/tree/gh-pages) of the same repository.
+Le dépôt du projet Jekyll lui-même est un parfait exemple de cette structure de branche —la [branche master]({{ site.repository }}) contient le véritable projet du logiciel, néanmoins le site web Jekyll (celui que vous regardez à cette  heure) est contenu dans la [branche gh-pages]({{ site.repository }}/tree/gh-pages) du même dépôt.
 
-### Project Page URL Structure
+### Structure de l'URL de la Page Projet 
 
-Sometimes it's nice to preview your Jekyll site before you push your `gh-pages`
-branch to GitHub. However, the subdirectory-like URL structure GitHub uses for
-Project Pages complicates the proper resolution of URLs. Here is an approach to
-utilizing the GitHub Project Page URL structure (`username.github.io/project-name/`)
-whilst maintaining the ability to preview your Jekyll site locally.
+Parfois, il est agréable de prévisualiser votre site avant de pousser votre branche `gh-pages` sur GitHub. Néanmoins, la structure d'URL de type-sous-répertoire que GitHub utilise pour les Pages Projet complique la bonne résolution des URLs. Voici une approche pour utiliser la structure d'URL de Page Projet GitHub (`nomutilisateur.github.io/nom-projet/`) tout en maintenant la capacité de prévisualiser localement votre site Jekyll.
 
-1. In `_config.yml`, set the `baseurl` option to `/project-name` -- note the
-   leading slash and the **absence** of a trailing slash.
-2. When referencing JS or CSS files, do it like this:
-   `{% raw %}{{ site.baseurl}}/path/to/css.css{% endraw %}` -- note the slash
-   immediately following the variable (just before "path").
-3. When doing permalinks or internal links, do it like this:
-   `{% raw %}{{ site.baseurl }}{{ post.url }}{% endraw %}` -- note that there
-   is **no** slash between the two variables.
-4. Finally, if you'd like to preview your site before committing/deploying using
-   `jekyll serve`, be sure to pass an **empty string** to the `--baseurl` option,
-   so that you can view everything at `localhost:4000` normally (without
-   `/project-name` at the beginning): `jekyll serve --baseurl ''`
+1. Dans `_config.yml`, réglez l'option `baseurl` sur `/nom-projet` -- remarquez le slash en avant et l'**absence** d'un slash à la fin.
+2. Au moment de faire référence à des fichiers JS ou CSS, faites comme suit :
+   `{% raw %}{{ site.baseurl}}/path/to/css.css{% endraw %}` -- remarquez le slash suivant immédiatement la variable (juste avant "path").
+3. Au moment de produire des permaliens ou des liens internes, faites comme suit : 
+   `{% raw %}{{ site.baseurl }}{{ post.url }}{% endraw %}` -- notez qu'il n'y a 
+   **pas** de slash entre les deux variables.
+4. Pour finir, si vous voulez prévisualiser votre site avant de committer/déployer en utilisant `jekyll serve`, assurez-vous de passer une **chaîne vide** vers l'option `--baseurl`, afin de pouvoir tout visualiser normalement sur `localhost:4000` (sans `/nom-projet` au début) : `jekyll serve --baseurl ''`
 
-This way you can preview your site locally from the site root on localhost,
-but when GitHub generates your pages from the gh-pages branch all the URLs
-will start with `/project-name` and resolve properly.
+Ainsi, vous pouvez prévisualiser votre site localement à partir du site racine sur localhost, mais quand GitHub génère vos pages à partir de la branche gh-pages, toutes les URLs commenceront pas `/nom-projet` et se résoudront proprement.
 
 <div class="note">
-  <h5>GitHub Pages Documentation, Help, and Support</h5>
+  <h5>Documentation Pages GitHub, Aide et Support</h5>
   <p>
-    For more information about what you can do with GitHub Pages, as well as for
-    troubleshooting guides, you should check out <a
-    href="https://help.github.com/categories/20/articles">GitHub’s Pages Help
-    section</a>. If all else fails, you should contact <a
-    href="https://github.com/contact">GitHub Support</a>.
+    Pour plus d'informations sur ce que vous pouvez faire avec les Pages GitHub, tout comme pour les guides de résolution de problèmes, vous devriez jeter un oeil à la <a
+    href="https://help.github.com/categories/20/articles">section d'Aide des Pages GitHub</a>. 
+    Si tout échoue, contactez le <a href="https://github.com/contact">Support GitHub</a>.
   </p>
 </div>

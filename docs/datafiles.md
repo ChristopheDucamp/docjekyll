@@ -1,36 +1,29 @@
 ---
 layout: docs
-title: Data Files
+title: Fichiers Data
 prev_section: variables
 next_section: migrations
 permalink: /docs/datafiles/
 ---
 
-In addition to the [built-in variables](../variables/) available from Jekyll,
-you can specify your own custom data that can be accessed via the [Liquid 
-templating system](http://wiki.github.com/shopify/liquid/liquid-for-designers).
+En plus des [variables intégrées](../variables/) disponibles dans Jekyll, vous pouvez spécifier vos propres data personnalisées pouvant être accédées via le [système de template Liquid](http://wiki.github.com/shopify/liquid/liquid-for-designers).
 
-Jekyll supports loading data from [YAML](http://yaml.org/) files located in the 
-`_data` directory.
+Jekyll supporte le chargement de data à partir des fichiers [YAML](http://yaml.org/) situés dans le répertoire `_data`.
 
-This powerful feature allows you to avoid repetition in your templates and to
-set site specific options without changing `_config.yml`. 
+Cette fonctionnalité puissante vous permet d'éviter la répétition dans vos templates et de régler des options spécifiques au site sans modifier `_config.yml`. 
 
-Plugins/themes can also leverage Data Files to set configuration variables.
+Les Plugins/thèmes peuvent aussi tirer partie des Fichiers Data pour régler les variables de configuration.
 
-## The Data Folder
+## Le Répertoire Data
 
-As explained on the [directory structure](../structure/) page, the `_data` 
-folder is where you can store additional data for Jekyll to use when generating
-your site. These files must be YAML files (using either the `.yml` or `.yaml`
-extension) and they will be accessible via `site.data`.
+Comme expliqué sur la page [sructure des répertoires](../structure/), le répertoire `_data` 
+est l'endroit où vous pouvez stocker de la data supplémentaire à utiliser par Jekyll au moment de générer votre site. Ces fichiers doivent être des fichiers YAM (en utilisant soit l'extensions `.yml` ou `.yaml`) et ils seront accessibles via `site.data`.
 
-## Example: List of members
+## Exemple : Liste de membres
 
-Here is a basic example of using Data Files to avoid copy-pasting large chunks of
-code in your Jekyll templates:
+Voici un exemple basique d'utilisation des Fichiers Data pour éviter de copier-coller de grands morceaux de code dans vos templates Jekyll : 
 
-In `_data/members.yml`:
+Dans `_data/members.yml`:
 
 {% highlight yaml %}
 - name: Tom Preston-Werner
@@ -43,10 +36,9 @@ In `_data/members.yml`:
   github: liufengyun
 {% endhighlight %}
 
-This data can be accessed via `site.data.members` (notice that the filename
-determines the variable name).
+Cette data peut être accédée via `site.data.members` (remarquez que le nom du fichier détermine le nom de la variable).
 
-You can now render the list of members in a template:
+Vous pouvez maintenant restituer la liste des membres dans un template :
 
 {% highlight html %}
 {% raw %}

@@ -1,57 +1,55 @@
 ---
 layout: docs
-title: Deployment methods
+title: Méthodes de déploiement
 prev_section: github-pages
 next_section: troubleshooting
 permalink: /docs/deployment-methods/
 ---
 
-Sites built using Jekyll can be deployed in a large number of ways due to the static nature of the generated output. A few of the most common deployment techniques are described below.
+Les sites construits avec Jekyll peuvent être déployés de différentes façons, du fait de la nature statique de la production générée. Quelques-unes des techniques les plus communes sont décrites ci-dessous.
 
-## Web hosting providers (FTP)
+## Fournisseurs d'hébergement web (FTP)
 
-Just about any traditional web hosting provider will let you upload files to their servers over FTP. To upload a Jekyll site to a web host using FTP, simply run the `jekyll` command and copy the generated `_site` folder to the root folder of your hosting account. This is most likely to be the `httpdocs` or `public_html` folder on most hosting providers.
+Quasiment tous les fournisseurs d'hébergement web traditionnels vous permettent de copier des fichiers sur leurs serveurs par FTP. Pour téléverser un site Jekyll sur un hébergeur web en utilisant FTP, lancez simplement la commande `jekyll` et copiez le répertoire `_site` généré sur le répertoire racine de votre compte hébergé. Pour la plupart des fournisseurs d'hébergement, ceci se fait généralement sur les répertoires `httpdocs` ou `public_html`.
 
-### FTP using Glynn
+### FTP en utilisant Glynn
 
-There is a project called [Glynn](https://github.com/dmathieu/glynn), which lets you easily generate your Jekyll powered website’s static files and
-send them to your host through FTP.
+Il existe un projet appelé [Glynn](https://github.com/dmathieu/glynn), qui vous permet de générer facilement vos fichiers statiques du site web motorisé par Jekyll et de 
+les envoyer à votre hébergeur par FTP.
 
-## Self-managed web server
+## Serveur web auto-géré
 
-If you have direct access yourself to the deployment web server yourself, the process is essentially the same, except you might have other methods available to you (such as `scp`, or even direct filesystem access) for transferring the files. Just remember to make sure the contents of the generated `_site` folder get placed in the appropriate web root directory for your web server.
+Si vous avez un accès direct au serveur de déploiement, le processus est en fait le même, si ce n'est que vous pourriez disposer d'autres méthodes vous étant réservées  
+(comme des accès `scp`, ou même un accès direct au système de fichiers). Souvenez-vous simplement de vous assurer que les contenus du répertoire `_site` généré soient placés dans le bon répertoire web racine de votre serveur web.
 
-## Automated methods
+## Méthodes automatisées 
 
-There are also a number of ways to easily automate the deployment of a Jekyll site. If you’ve got another method that isn’t listed below, we’d love it if you [contributed](../contributing/) so that everyone else can benefit too.
+Il existe aussi un certain nombre de moyens pour automatiser facilement le déploiement d'un site Jekyll. Si vous avez une autre méthode non listée ci-dessous, nous adorerions l'ajouter si vous [y avez contribué](../contributing/) afin que tous les autres puissent aussi en profiter.
 
 ### Git post-update hook
 
-If you store your jekyll site in [Git](http://git-scm.com/) (you are using version control, right?), it’s pretty easy to automate the
-deployment process by setting up a post-update hook in your Git
-repository, [like
-this](http://web.archive.org/web/20091223025644/http://www.taknado.com/en/2009/03/26/deploying-a-jekyll-generated-site/).
+Si vous stockez votre site jekyll dans [Git](http://git-scm.com/) (vous utiliser un contrôle de version, non ?), il est vraiment facile d'automatiser le processus de déploiement en réglant un hook de mise-à-jour-post dans votre dépôt Git, [comme ceci](http://web.archive.org/web/20091223025644/http://www.taknado.com/en/2009/03/26/deploying-a-jekyll-generated-site/).
 
 ### Git post-receive hook
 
-To have a remote server handle the deploy for you every time you push changes using Git, you can create a user account which has all the public keys that are authorized to deploy in its `authorized_keys` file. With that in place, setting up the post-receive hook is done as follows:
+Pour faire qu'un serveur distant gère le déploiement pour vous à chaque fois que vous poussez des modifications en utilisant Git, vous pouvez créer un compte utilisateur qui dispose de toutes les clés publiques qui sont autorisées pour déployer dans son fichier `authorized_keys`. 
+Avec ça en place, régler le hook post-receive se fait comme suit : 
 
 {% highlight bash %}
 laptop$ ssh deployer@example.com
-server$ mkdir myrepo.git
-server$ cd myrepo.git
+server$ mkdir monrepo.git
+server$ cd monrepo.git
 server$ git --bare init
 server$ cp hooks/post-receive.sample hooks/post-receive
-server$ mkdir /var/www/myrepo
+server$ mkdir /var/www/monrepo
 {% endhighlight %}
 
-Next, add the following lines to hooks/post-receive and be sure Jekyll is
-installed on the server:
+Ensuite ajoutez les lignes suivantes aux hooks/post-receive et assurez-vous que Jekyll soit installé sur le serveur :
 
 {% highlight bash %}
-GIT_REPO=$HOME/myrepo.git
-TMP_GIT_CLONE=$HOME/tmp/myrepo
-PUBLIC_WWW=/var/www/myrepo
+GIT_REPO=$HOME/monrepo.git
+TMP_GIT_CLONE=$HOME/tmp/monrepo
+PUBLIC_WWW=/var/www/monrepo
 
 git clone $GIT_REPO $TMP_GIT_CLONE
 jekyll build -s $TMP_GIT_CLONE -d $PUBLIC_WWW
@@ -59,15 +57,14 @@ rm -Rf $TMP_GIT_CLONE
 exit
 {% endhighlight %}
 
-Finally, run the following command on any users laptop that needs to be able to
-deploy using this hook:
+Pour finir, faites tourner la commande suivante sur n'importe quel ordinateur d'utilisateur ayant de déployer en utilisant ce hook : 
 
 {% highlight bash %}
-laptops$ git remote add deploy deployer@example.com:~/myrepo.git
+laptops$ git remote add deploy deployer@exemple.com:~/monrepo.git
 {% endhighlight %}
 
-Deploying is now as easy as telling nginx or Apache to look at
-`/var/www/myrepo` and running the following:
+Déployer est maintenant aussi facile que de dire à nginx ou Apache de regarder 
+`/var/www/monrepo` et de faire tourner ce qui suit : 
 
 {% highlight bash %}
 laptops$ git push deploy master
@@ -75,40 +72,42 @@ laptops$ git push deploy master
 
 ### Rake
 
-Another way to deploy your Jekyll site is to use [Rake](https://github.com/jimweirich/rake), [HighLine](https://github.com/JEG2/highline), and
-[Net::SSH](http://net-ssh.rubyforge.org/). A more complex example of deploying Jekyll with Rake that deals with multiple branches can be found in [Git Ready](https://github.com/gitready/gitready/blob/cdfbc4ec5321ff8d18c3ce936e9c749dbbc4f190/Rakefile).
+Un autre moyen de déployer votre site Jekyll est d'utiliser [Rake](https://github.com/jimweirich/rake), [HighLine](https://github.com/JEG2/highline), et 
+[Net::SSH](http://net-ssh.rubyforge.org/). Un exemple plus complexe de déploiement Jekyll avec Rake qui gère plusieurs branches peut être trouvé dans [Git Ready](https://github.com/gitready/gitready/blob/cdfbc4ec5321ff8d18c3ce936e9c749dbbc4f190/Rakefile).
 
 ### rsync
 
-Once you’ve generated the `_site` directory, you can easily rsync it using a `tasks/deploy` shell script similar to [this deploy script here](http://github.com/henrik/henrik.nyh.se/blob/master/tasks/deploy). You’d obviously need to change the values to reflect your site’s details. There is even [a matching TextMate command](http://gist.github.com/214959) that will help you run
-this script from within Textmate.
+Une fois que vous avez généré le répertoire `_site`, vous pouvez facilement le rsync en utilisant un script shell `tasks/deploy` similaire à ce 
+[script de déploiement ici](http://github.com/henrik/henrik.nyh.se/blob/master/tasks/deploy). 
+Vous devriez bien évidemment changer les valeurs pour refléter les détails de votre site. 
+Il existe même une [commande correspondante TextMate](http://gist.github.com/214959) qui vous aidera à faire tourner ce script à partir de Textmate.
 
 
 ## Rack-Jekyll
 
-[Rack-Jekyll](http://github.com/bry4n/rack-jekyll/) is an easy way to deploy your site on any Rack server such as Amazon EC2, Slicehost, Heroku, and so forth. It also can run with [shotgun](http://github.com/rtomakyo/shotgun/), [rackup](http://github.com/rack/rack), [mongrel](http://github.com/mongrel/mongrel), [unicorn](http://github.com/defunkt/unicorn/), and [others](https://github.com/adaoraul/rack-jekyll#readme).
+[Rack-Jekyll](http://github.com/bry4n/rack-jekyll/) est un moyen facile de déployer votre site sur tout serveur Rack tel que Amazon EC2, Slicehost, Heroku et ainsi de suite. 
+Il peut aussi tourner avec [shotgun](http://github.com/rtomakyo/shotgun/), [rackup](http://github.com/rack/rack), [mongrel](http://github.com/mongrel/mongrel), [unicorn](http://github.com/defunkt/unicorn/), et d'[autres](https://github.com/adaoraul/rack-jekyll#readme).
 
-Read [this post](http://blog.crowdint.com/2010/08/02/instant-blog-using-jekyll-and-heroku.html) on how to deploy to Heroku using Rack-Jekyll.
+Lisez [ce post](http://blog.crowdint.com/2010/08/02/instant-blog-using-jekyll-and-heroku.html) pour savoir comment déployer sur Heroku en utilisant Rack-Jekyll.
 
-## Jekyll-Admin for Rails
+## Jekyll-Admin pour Rails
 
-If you want to maintain Jekyll inside your existing Rails app, [Jekyll-Admin](http://github.com/zkarpinski/Jekyll-Admin) contains drop in code to make this possible. See Jekyll-Admin’s [README](http://github.com/zkarpinski/Jekyll-Admin/blob/master/README) for more details.
+Si vous voulez maintenir Jekyll dans votre app existante Rails, [Jekyll-Admin](http://github.com/zkarpinski/Jekyll-Admin) contient un code à lâcher pour rendre ça possible. 
+Regardez la page [README](http://github.com/zkarpinski/Jekyll-Admin/blob/master/README) de Jekyll-Admin pour plus de détails.
 
 ## Amazon S3
 
-If you want to host your site in Amazon S3, you can do so with
-[s3_website](https://github.com/laurilehmijoki/s3_website) application. It will
-push your site to Amazon S3 where it can be served like any web server,
-dynamically scaling to almost unlimited traffic. This approach has the
-benefit of being about the cheapest hosting option available for
-low-volume blogs as you only pay for what you use.
+Si vous voulez héberger votre site sur Amazon S3, vous pouvez faire ainsi avec l'application 
+[s3_website](https://github.com/laurilehmijoki/s3_website). Elle poussera votre site vers Amazon S3 où il peut être servi comme n'importe quel serveur web,
+pouvant dynamiquement passer à l'échelle pour du trafic presque illimité. Cette approche a l'avantage d'être parmi l'option d'hébergement la plus économique pour des blogs de gros volume, car vous ne payez que pour ce que vous utilisez.
+
 
 ## OpenShift
 
-If you'd like to deploy your site to an OpenShift gear, there's [a cartridge
-for that](https://github.com/openshift-cartridges/openshift-jekyll-cartridge).
+Si vous souhaitez déployer votre site sur OpenShift, il y a [une cartouche pour cela](https://github.com/openshift-cartridges/openshift-jekyll-cartridge).
 
 <div class="note">
-  <h5>ProTip™: Use GitHub Pages for zero-hassle Jekyll hosting</h5>
-  <p>GitHub Pages are powered by Jekyll behind the scenes, so if you’re looking for a zero-hassle, zero-cost solution, GitHub Pages are a great way to <a href="../github-pages/">host your Jekyll-powered website for free</a>.</p>
+  <h5>ProTruc : Utilisez Pages GitHub pour un hébergement Jekyll zéro-tracas</h5>
+  <p>Les Pages GitHub sont motorisées en coulisses par Jekyll, par conséquent si vous cherchez un hébergement zéro-tracas, une solution à coût zéro, les Pages GitHub sont un moyen génial pour <a href="../github-pages/">héberger gratuitement votre site web-motorisé-par-Jekyll</a>.</p>
 </div>
+

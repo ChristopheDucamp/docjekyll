@@ -1,21 +1,16 @@
 ---
 layout: docs
-title: Working with drafts
+title: Travailler avec des drafts
 prev_section: posts
 next_section: pages
 permalink: /docs/drafts/
 ---
 
-Drafts are posts without a date. They're posts you're still working on and don't want to
-publish yet. To get up and running with drafts, create a `_drafts` folder in your site's
-root (as described in the [site structure](/docs/structure/) section) and create your
-first draft:
+Les drafts sont des posts sans date. Ce sont des posts sur lesquels vous travaillez et que vous ne voulez pas publier. Pour faire fonctionner des  drafts, créez un répertoire `_drafts` à la racine de votre site (comme décrit dans la section [structure du site](/docs/structure/)) et créez votre premier draft :
 
 {% highlight text %}
 |-- _drafts/
-|   |-- a-draft-post.md
+|   |-- un-post-draft.md
 {% endhighlight %}
 
-To preview your site with drafts, simply run `jekyll serve` or `jekyll build` with
-the `--drafts` switch.  Each will be assigned the value modification time of the draft file
-for its date, and thus you will see currently edited drafts as the latest posts.
+Pour prévisualiser votre site avec des drafts, faites simplement tourner `jekyll serve` ou `jekyll build` avec le switch `--drafts`.  Chacun d'eux de verra assigner la valeur time de la modification du fichier draft pour sa date, et vous verrez donc les drafts actuellement édités comme les posts les plus récents.

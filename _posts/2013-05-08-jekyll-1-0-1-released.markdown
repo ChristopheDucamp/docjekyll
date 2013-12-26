@@ -7,21 +7,21 @@ version: 1.0.1
 categories: [release]
 ---
 
-Hot on the trails of v1.0, v1.0.1 is out! Here are the highlights:
+Chaud dans la lignée de la v1.0, la v1.0.1 est sortie ! Voici less points forts :
 
-* Add newer `language-` class name prefix to code blocks ([#1037][])
-* Commander error message now preferred over process abort with incorrect args ([#1040][])
-* Do not force use of toc_token when using generate_toc in RDiscount ([#1048][])
-* Make Redcarpet respect the pygments configuration option ([#1053][])
-* Fix the index build with LSI ([#1045][])
-* Don't print deprecation warning when no arguments are specified. ([#1041][])
-* Add missing `</div>` to site template used by `new` subcommand, fixed typos in code ([#1032][])
+* Ajouté un nouveau préfixe de nom de classe `language-` aux blocs de code ([#1037][])
+* Message d'erreur Commander maintenant préféré sur l'abandon du process avec des args incorrects ([#1040][])
+* Ne pas forcer l'usage de toc_token au moment de générer une generate_toc dans RDiscount ([#1048][])
+* RedCarpet respecte l'option de configuration pygments ([#1053][])
+* Réparé la construction d'index avec  LSI ([#1045][])
+* N'imprime pas l'avertissement de dépréciation quand aucun argument n'est spécifié. ([#1041][])
+* Ajouté `</div>` manquante au gabarit du site utilisé par la sous-commande `new`, réparé les typos dans le code ([#1032][])
 
-See the [History][] page for more information on this release.
+Voir la page [Historique][] pour plus d'information sur cette version.
 
 {% assign issue_numbers = "1037|1040|1048|1053|1045|1041|1032" | split: "|" %}
 {% for issue in issue_numbers %}
 [#{{ issue }}]: {{ site.repository }}/issues/{{ issue }}
 {% endfor %}
 
-[History]: /docs/history/#101__20130508
+[Historique]: /docs/history/#101__20130508

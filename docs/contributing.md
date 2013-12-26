@@ -1,56 +1,37 @@
 ---
 layout: docs
-title: Contributing
+title: Contribuer
 prev_section: upgrading
 next_section: history
 permalink: /docs/contributing/
 ---
 
-So you've got an awesome idea to throw into Jekyll. Great! Please keep the
-following in mind:
+Vous avez une idée géniale à jeter dans Jekyll ? Super ! Gardez en tête ce qui suit : 
 
-* If you're creating a small fix or patch to an existing feature, just a simple
-  test will do. Please stay in the confines of the current test suite and use
-  [Shoulda](http://github.com/thoughtbot/shoulda/tree/master) and
-  [RR](http://github.com/btakita/rr/tree/master).
-* If it's a brand new feature, make sure to create a new
-  [Cucumber](https://github.com/cucumber/cucumber/) feature and reuse steps
-  where appropriate. Also, whipping up some documentation in your fork's `site`
-  would be appreciated, and once merged it will be transferred over to the main
-  `site`, jekyllrb.com.
-* If your contribution changes any Jekyll behavior, make sure to update the
-  documentation. It lives in `site/docs`. If the docs are missing information,
-  please feel free to add it in. Great docs make a great project!
-* Please follow the [GitHub Ruby Styleguide](https://github.com/styleguide/ruby)
-  when modifying Ruby code.
-* Please do your best to submit **small pull requests**. The easier the proposed
-  change is to review, the more likely it will be merged.
-* When submitting a pull request, please make judicious use of the pull request
-  body. A description of what changes were made, the motivations behind the
-  changes and [any tasks completed or left to complete](http://git.io/gfm-tasks)
-  will also speed up review time.
+* Si vous créez une petite réparation ou un patch pour une fonctionnalité existante, un simple test fera simplement l'affaire. SVP restez dans les confins de la suite actuelle de test et utilisez [Shoulda](http://github.com/thoughtbot/shoulda/tree/master) et [RR](http://github.com/btakita/rr/tree/master).
+* Si c'est une toute nouvelle fonctionnalité, assurez-vous de créer une nouvelle fonctionnalité [Cucumber](https://github.com/cucumber/cucumber/) et refaites les étapes si nécessaire. Fournissez aussi un peu de documentation dans votre `site` forké, ce sera apprécié. Une fois fusionnée, elle sera tranférée sur le `site` principal, jekyllrb.com.
+* Si votre contribution change quelque comportement de Jekyll, assurez-vous de mettre à jour la documentation. Elle vit dans `site/docs`. S'il manque de l'information dans les docs, sentez-vous libre d'en ajouter. Les documentations géniales font les grands projets ! 
+* SVP, suivez le [Guide de Style GitHub Ruby](https://github.com/styleguide/ruby) quand vous modifiez le code Ruby.
+* SVP, faites de votre mieux pour proposer de **petites pull requests**. Plus la modification proposée est facile à réviser, plus elle a de chance d'être fusionnée.
+* Au moment de proposer une pull request, faites SVP un usage judicieux du contenu de la pull request. Une description des changements qui ont été produits, les motivations derrière les modifications et [toutes les tâches achevées ou laissées pour achèvement](http://git.io/gfm-tasks) accéléreront le temps de révision.
 
 <div class="note warning">
-  <h5>Contributions will not be accepted without tests</h5>
+  <h5>Les contributions sans tests ne seront pas acceptées</h5>
   <p>
-    If you’re creating a small fix or patch to an existing feature, just
-    a simple test will do.
+    Si vous créez une petite réparation ou un patch pour une fonctionnalité existante, un petit test simple suffira.
   </p>
 </div>
 
-Test Dependencies
------------------
+Dépendances Test
+---------------------------
 
-To run the test suite and build the gem you'll need to install Jekyll's
-dependencies. Jekyll uses Bundler, so a quick run of the `bundle` command and
-you're all set!
+Pour faire tourner la suite test et construire la gem, vous devrez installer les dépendances de Jekyll. Jekyll utilise Bundler, faites donc un lancement rapide de la commande `bundle` et tout est réglé !
 
 {% highlight bash %}
 $ bundle
 {% endhighlight %}
 
-Before you start, run the tests and make sure that they pass (to confirm your
-environment is configured properly):
+Avant de démarrer, faites tourner les tests et assurez-vous qu'ils passent (pour confirmer que votre environnement est configuré proprement) :
 
 {% highlight bash %}
 $ bundle exec rake test
@@ -58,71 +39,58 @@ $ bundle exec rake features
 {% endhighlight %}
 
 Workflow
---------
+-----------
 
-Here's the most direct way to get your work merged into the project:
+Voici le moyen le plus direct pour que votre travail soit fusionné dans le projet : 
 
-* Fork the project.
-* Clone down your fork:
-
-{% highlight bash %}
-git clone git://github.com/<username>/jekyll.git
-{% endhighlight %}
-
-* Create a topic branch to contain your change:
+* Forkez le projet.
+* Clonez votre fork localement :
 
 {% highlight bash %}
-git checkout -b my_awesome_feature
+git clone git://github.com/<nomutilisateur>/jekyll.git
 {% endhighlight %}
 
-
-* Hack away, add tests. Not necessarily in that order.
-* Make sure everything still passes by running `rake`.
-* If necessary, rebase your commits into logical chunks, without errors.
-* Push the branch up:
+* Créez une branche thématique qui contient votre modification : 
 
 {% highlight bash %}
-git push origin my_awesome_feature
+git checkout -b ma_fonctionnalite_geniale
 {% endhighlight %}
 
-* Create a pull request against jekyll/jekyll:master and describe what your
-  change does and the why you think it should be merged.
 
-Updating Documentation
-----------------------
+* Hackez, ajoutez les tests. Pas nécessairement dans cet ordre.
+* Assurez-vous que tout passe encore en faisant tourner `rake`.
+* Si nécessaire, rebasez vos commits à l'intérieur de pièces logiques, sans erreurs.
+* Poussez la branche sur le serveur : 
 
-We want the Jekyll documentation to be the best it can be. We've
-open-sourced our docs and we welcome any pull requests if you find it
-lacking.
+{% highlight bash %}
+git push origin ma_fonctionnalite_geniale
+{% endhighlight %}
 
-You can find the documentation for jekyllrb.com in the
-[site]({{ site.repository }}/tree/master/site) directory of
-Jekyll's repo on GitHub.com.
+* Créez une demande de pull sur mojombo/jekyll:master et décrivez ce que fait votre modification et pourquoi vous pensez qu'elle devrait être fusionnée.
 
-All documentation pull requests should be directed at `master`.  Pull
-requests directed at another branch will not be accepted.
+Mise à Jour de la Documentation
+-------------------------------
 
-The [Jekyll wiki]({{ site.repository }}/wiki) on GitHub 
-can be freely updated without a pull request as all 
-GitHub users have access.
+Nous voulons que la documentation Jekyll soit la meilleure qui soit. Nous avons open-sourcé nos docs et nous souhaitons la bienvenue à toutes les demandes de pull si vous trouvez qu'il existe des manquements.
 
-Gotchas
--------
+Vous pouvez trouver la documentation de jekyllrb.com dans le répertoire du 
+[site]({{ site.repository }}/tree/master/site) du repo de Jekyll sur GitHub.com.
 
-* If you want to bump the gem version, please put that in a separate commit.
-  This way, the maintainers can control when the gem gets released.
-* Try to keep your patch(es) based from the latest commit on jekyll/jekyll.
-  The easier it is to apply your work, the less work the maintainers have to do,
-  which is always a good thing.
-* Please don't tag your GitHub issue with \[fix\], \[feature\], etc. The maintainers
-  actively read the issues and will label it once they come across it.
+Toutes les demandes de pull sur la documentation devraient être dirigées sur `master`.  Les requêtes pull dirigées sur une autre branche ne seront pas acceptées.
+
+Le [wiki Jekyll]({{ site.repository }}/wiki) sur GitHub peut être librement mis à jour sans pull request car tous les utilisateurs de GitHub y ont accès.
+
+Pigé !
+-----
+
+* Si vous voulez secouer la version gem, placez-la svp dans un commit séparé. De cette façon, les mainteneurs peuvent contrôler quand la gem est mise à jour.
+* Essayez de maintenir votre(s) patch(es) basés à partir du dernier commit sur mojombo/jekyll. Plus il sera facile d'exécuter votre travail, moins il y aura de travail pour les mainteneurs, ce qui est toujours une bonne chose.
+* SVP, ne taguez pas votre problématique GitHub avec \[fix\], \[feature\], etc. Les mainteneurs lisent activement les problèmes et l'étiquetteront une fois qu'ils l'auront étudiée.
 
 <div class="note">
-  <h5>Let us know what could be better!</h5>
+  <h5>Faites-nous savoir ce qui pourrait être amélioré !</h5>
   <p>
-    Both using and hacking on Jekyll should be fun, simple, and easy, so if for
-    some reason you find it’s a pain, please <a
-    href="{{ site.repository }}/issues/new">create an issue</a> on
-    GitHub describing your experience so we can make it better.
+    Utiliser et hacker Jekyll devrait rester amusant, simple et facile. Si pour quelque raison que ce soit, vous trouvez que c'est pénible, <a
+    href="{{ site.repository }}/issues/new">créez SVP un "issue"</a> décrivant votre expérience afin que nous puissions l'améliorer.
   </p>
 </div>

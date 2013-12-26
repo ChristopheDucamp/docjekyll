@@ -6,84 +6,73 @@ next_section: plugins
 permalink: /docs/pagination/
 ---
 
-With many websites—especially blogs—it’s very common to break the main listing
-of posts up into smaller lists and display them over multiple pages. Jekyll has
-pagination built-in, so you can automatically generate the appropriate files and
-folders you need for paginated listings.
+Sur beaucoup de sites web —tout spécialement les blogs— il est courant de diviser la liste principale des posts en listes plus petites et de les afficher sur plusieurs pages. Jekyll a une pagination intégrée, ainsi vous pouvez générer automatiquement des listes paginées pour les fichiers et dossiers appropriés dont vous avez besoin.
 
 <div class="note info">
-  <h5>Pagination only works within HTML files</h5>
+  <h5>La pagination ne fonctionne que pour des fichiers HTML</h5>
   <p>
-    Pagination does not work with Markdown or Textile files in your Jekyll site.
-    It will only work when used within HTML files. Since you’ll likely be using
-    this for the list of Posts, this shouldn’t be an issue.
+    La pagination ne fonctionne pas avec les fichiers Markdown ou Textile dans votre site Jekyll. Elle ne fonctionnera que quand elle est utilisée dans des fichiers HTML. Vous utiliserez probablement ça pour la liste des Posts, ceci ne devrait donc pas poser de problème.
   </p>
 </div>
 
-## Enable pagination
+## Permettre la pagination
 
-To enable pagination for your blog, add a line to the `_config.yml` file that
-specifies how many items should be displayed per page:
+Pour permettre la pagination de votre blog, ajoutez une ligne au fichier `_config.yml` qui spécifie combien d'items devraient être affichés par page :
 
 {% highlight yaml %}
 paginate: 5
 {% endhighlight %}
 
-The number should be the maximum number of Posts you’d like to be displayed per-
-page in the generated site.
+Le nombre devrait être le maximum de Posts par-page que vous aimeriez afficher dans le site généré.
 
-You may also specify where the destination of the pagination pages:
+Vous pouvez aussi spécifier la destination de la pagination : 
 
 {% highlight yaml %}
 paginate_path: "blog/page:num"
 {% endhighlight %}
 
-This will read in `blog/index.html`, send it each pagination page in Liquid as `paginator`
-and write the output to `blog/page:num`, where `:num` is the pagination page number,
-starting with `2`. If a site has 12 posts and specifies `paginate: 5`, Jekyll will write
-`blog/index.html` with the first 5 posts, `blog/page2/index.html` with the next 5 posts
-and `blog/page3/index.html` with the last 2 posts into the destination directory.
+Ceci lira dans le fichier `blog/index.html`, enverra chaque page de pagination dans Liquid comme `paginator`
+et écrira le rendu sur `blog/page:num`, où `:num` est le numéro de pagination de la page, commençant par `2`. Si un site a 12 posts et spécifie `paginate: 5`, Jekyll écrira `blog/index.html` avec les 5 premiers posts, `blog/page2/index.html` avec les 5 posts suivants et `blog/page3/index.html` avec les 2 derniers posts à l'intérieur du répertoire de destination.
 
-## Liquid Attributes Available
+## Attributs Liquid Disponibles
 
-The pagination plugin exposes the `paginator` liquid object with the following
-attributes:
+Le plugin de pagination expose l'objet liquid `paginator` avec les attributs suivants :
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Attribute</th>
+      <th>Attribut</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><p><code>page</code></p></td>
-      <td><p>current page number</p></td>
+      <td><p>numéro de la page en cours</p></td>
     </tr>
     <tr>
       <td><p><code>per_page</code></p></td>
-      <td><p>number of posts per page</p></td>
+      <td><p>nombre de posts par page</p></td>
     </tr>
     <tr>
       <td><p><code>posts</code></p></td>
-      <td><p>a list of posts for the current page</p></td>
+      <td><p>une liste des posts pour la page en cours</p></td>
     </tr>
     <tr>
       <td><p><code>total_posts</code></p></td>
-      <td><p>total number of posts in the site</p></td>
+      <td><p>nombre total de posts dans le site</p></td>
     </tr>
     <tr>
       <td><p><code>total_pages</code></p></td>
-      <td><p>number of pagination pages</p></td>
+      <td><p>nombre de pages de pagination</p></td>
     </tr>
     <tr>
       <td><p><code>previous_page</code></p></td>
       <td>
           <p>
-              page number of the previous pagination page,
-              or <code>nil</code> if no previous page exists
+              numéro de page de la page de pagination précédente,
+              ou <code>nil</code> si aucune page précédente n'existe
           </p>
       </td>
     </tr>
@@ -91,8 +80,8 @@ attributes:
       <td><p><code>previous_page_path</code></p></td>
       <td>
           <p>
-              path of previous pagination page,
-              or <code>nil</code> if no previous page exists
+              chemin de la page de pagniation précédente,
+              ou <code>nil</code> si aucune page précédente n'existe
           </p>
       </td>
     </tr>
@@ -100,8 +89,8 @@ attributes:
       <td><p><code>next_page</code></p></td>
       <td>
           <p>
-              page number of the next pagination page,
-              or <code>nil</code> if no subsequent page exists
+              numéro de page de la page de pagination suivante,
+              ou <code>nil</code> si aucune suivante n'existe
           </p>
       </td>
     </tr>
@@ -109,8 +98,8 @@ attributes:
       <td><p><code>next_page_path</code></p></td>
       <td>
           <p>
-              path of next pagination page,
-              or <code>nil</code> if no subsequent page exists
+              chemin de la page de pagination suivante,
+              ou <code>nil</code> si aucune suivante n'existe
           </p>
       </td>
     </tr>
@@ -119,28 +108,24 @@ attributes:
 </div>
 
 <div class="note info">
-  <h5>Pagination does not support tags or categories</h5>
-  <p>Pagination pages through every post in the <code>posts</code>
-  variable regardless of variables defined in the YAML Front Matter of
-  each. It does not currently allow paging over groups of posts linked
-  by a common tag or category.</p>
+  <h5>Pagination ne supporte pas les tags ou categories</h5>
+  <p>Pagination pagine à travers chaque post dans la variable <code>posts</code>
+  sans prendre en compte les variables définies dans le Front Matter YAML de chacun d'eux. 
+  Il ne permet pas à cette heure de paginer des groupes de posts liés par un tag ou une catégorie communs.</p>
 </div>
 
-## Render the paginated Posts
+## Restituer les Posts Paginés
 
-The next thing you need to do is to actually display your posts in a list using
-the `paginator` variable that will now be available to you. You’ll probably want
-to do this in one of the main pages of your site. Here’s one example of a simple
-way of rendering paginated Posts in a HTML file:
+Le truc à savoir si vous avez besoin de faire ça, c'est afficher véritablement vos posts dans une liste en utilisant la variable `paginator` qui sera maintenant disponible. Vous voudrez probablement faire ça dans l'une des pages principales de votre site. Voici un exemple simple pour restituer des Posts paginés dans un fichier HTML : 
 
 {% highlight html %}
 {% raw %}
 ---
 layout: default
-title: My Blog
+title: Mon Blog
 ---
 
-<!-- This loops through the paginated posts -->
+<!-- Ceci boucle a travers les posts pagines -->
 {% for post in paginator.posts %}
   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
   <p class="author">
@@ -151,43 +136,40 @@ title: My Blog
   </div>
 {% endfor %}
 
-<!-- Pagination links -->
+<!-- Liens de pagination -->
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="/page{{ paginator.previous_page }}" class="previous">Previous</a>
+    <a href="/page{{ paginator.previous_page }}" class="previous">Avant</a>
   {% else %}
-    <span class="previous">Previous</span>
+    <span class="previous">Avant</span>
   {% endif %}
-  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  <span class="page_number ">Page : {{ paginator.page }} de {{ paginator.total_pages }}</span>
   {% if paginator.next_page %}
-    <a href="/page{{ paginator.next_page }}" class="next">Next</a>
+    <a href="/page{{ paginator.next_page }}" class="next">Suivant</a>
   {% else %}
-    <span class="next ">Next</span>
+    <span class="next ">Suivant</span>
   {% endif %}
 </div>
 {% endraw %}
 {% endhighlight %}
 
 <div class="note warning">
-  <h5>Beware the page one edge-case</h5>
+  <h5>Attention au cas isolé de la page un</h5>
   <p>
-    Jekyll does not generate a ‘page1’ folder, so the above code will not work
-    when a <code>/page1</code> link is produced. See below for a way to handle
-    this if it’s a problem for you.
+    Jekyll ne génère pas un dossier ‘page1’, par conséquent le code ci-dessus ne fonctionnera pas quand un lien <code>/page1</code> est produit. Voir en-dessous pour un moyen de gérer ça si c'est un problème pour vous.
   </p>
 </div>
 
-The following HTML snippet should handle page one, and render a list of each
-page with links to all but the current page.
+Le fragment HTML qui suit devrait gérer la page un, et restituer une liste avec des liens pour tout sauf la page en cours.
 
 {% highlight html %}
 {% raw %}
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Avant</a>
   {% else %}
-    <span>&laquo; Prev</span>
+    <span>&laquo; Avant</span>
   {% endif %}
 
   {% for page in (1..paginator.total_pages) %}
@@ -201,9 +183,9 @@ page with links to all but the current page.
   {% endfor %}
 
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Suivant &raquo;</a>
   {% else %}
-    <span>Next &raquo;</span>
+    <span>Suivant &raquo;</span>
   {% endif %}
 </div>
 {% endif %}

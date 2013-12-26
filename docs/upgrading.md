@@ -1,116 +1,89 @@
 ---
 layout: docs
-title: Upgrading
+title: Mettre à jour
 prev_section: resources
 next_section: contributing
 permalink: /docs/upgrading/
 ---
 
-Upgrading from an older version of Jekyll? A few things have changed in 1.0
-that you'll want to know about.
+Mettre à jour à partir d'une version plus ancienne de Jekyll ? Quelques trucs ont changé dans la version 1.0 que vous pourriez vouloir connaître.
 
-Before we dive in, go ahead and fetch the latest version of Jekyll:
+Avant de plonger, avancez et récupérez la dernière version de Jekyll :
 
 {% highlight bash %}
 $ gem update jekyll
 {% endhighlight %}
 
 <div class="note feature">
-  <h5 markdown="1">Diving in</h5>
-  <p markdown="1">Want to get a new Jekyll site up and running quickly? Simply
-   run <code>jekyll new SITENAME</code> to create a new folder with a bare bones
-   Jekyll site.</p>
+  <h5 markdown="1">Plongeon</h5>
+  <p markdown="1">Vous voulez consruire et faire tourner rapidement un nouveau site Jekyll ? Faites tourner simplement <code>jekyll new NOMDUSITE</code> pour créer un nouveau répertoire avec les fondations de site Jekyll.</p>
 </div>
 
-### The Jekyll Command
+### La Commande Jekyll
 
-For better clarity, Jekyll now accepts the commands `build` and `serve`.
-Whereas before you might simply run the command `jekyll` to generate a site
-and `jekyll --server` to view it locally, now use the subcommands `jekyll build`
-and `jekyll serve` to do the same. And if you want Jekyll to automatically
-rebuild each time a file changes, just add the `--watch` flag at the end.
+Pour plus de clarté, Jekyll accepte désormais les commandes `build` et `serve`.
+Alors qu'avant vous pouviez simplement faire tourner la commande `jekyll` pour générer un site et `jekyll --server` pour le voir localement, utilisez désormais les sous-commandes `jekyll build` et `jekyll serve` pour faire la même chose. Et si vous voulez que Jekyll reconstruise automatiquement à chaque fois qu'un fichier est modifié, ajoutez simplement le flag `--watch` à la fin.
 
 <div class="note info">
-  <h5>Watching and Serving</h5>
-  <p markdown="1">With the new subcommands, the way sites are previewed locally
-   changed a bit. Instead of specifying `server: true` in the site's
-   configuration file, use `jekyll serve`. The same hold's true for
-   `watch: true`. Instead, use the `&#45;&#45;watch` flag with either `jekyll serve`
-    or `jekyll build`.</p>
+  <h5>Regarder et Servir</h5>
+  <p markdown="1">Avec les nouvelles sous-commandes, la façon dont les sites sont prévisualisés change un peu. Au lieu de spécifier `server: true` dans le fichier de configuration du site, utilisez `jekyll serve`. La même chose s'applique pour `watch: true`. Au lieu de cela, utilisez le flag `&#45;&#45;watch` avec soit `jekyll serve` ou `jekyll build`.</p>
 </div>
 
-### Absolute Permalinks
+### Permaliens Absolus
 
-In Jekyll v1.0, we introduced absolute permalinks for pages in subdirectories.
-Until v2.0, it is **opt-in**. Starting with v2.0, however, absolute permalinks
-will become **opt-out**, meaning Jekyll will default to using absolute permalinks
-instead of relative permalinks.
+Dans Jekyll v1.0, nous avons introduit les permaliens absolus pour les pages dans les sous-répetoires.
+Jusqu'à la v2.0, il est **opt-in**. À partir de la v2.0, néanmoins, les peramiens absolus 
+deviendront **opt-out**, voulant dire par là que Jekyll utilisera par défaut des permaliens absolus au lieu des permaliens relatifs.
 
-* To use absolute permalinks, set `relative_permalinks: false` in your configuration file.
-* To continue using relative permalinks, set `relative_permalinks: true` in your configuration file.
+* Pour utiliser des permaliens absolus, réglez dans votre fichier de configuration `relative_permalinks: false`.
+* Pour continuer à utiliser des permaliens relatifs,  réglez dans votre fichier de configuration  `relative_permalinks: true`.
 
 <div class="note warning" id="absolute-permalinks-warning">
-  <h5 markdown="1">Absolute permalinks will be default in v2.0 and on</h5>
+  <h5 markdown="1">Les permaliens absolus seront activés par défaut dans la v2.0</h5>
   <p markdown="1">
-    Starting with Jekyll v2.0, `relative_permalinks` will default to `false`,
-    meaning all pages will be built using the absolute permalink behaviour.
-    The switch will still exist until v2.0.
+    À partir de la Jekyll v2.0, `relative_permalinks` sera réglé par défaut sur `false`,
+    signifiant que toutes les pages seront construites en utilisant le comportement de permalien absolu. La bascule existera encore jusqu'à la v2.0.
   </p>
 </div>
 
-### Draft Posts
+### Posts Draft
 
-Jekyll now lets you write draft posts, and allows you to easily preview how
-they will look prior to publishing. To start a draft, simply create a folder
-called `_drafts` in your site's source directory (e.g., alongside `_posts`),
-and add a new markdown file to it. To preview your new post, simply run the
-`jekyll serve` command with the `--drafts` flag.
+Jekyll vous permet désormais d'écrire des posts brouillons, et vous permet de les prévisualiser avant publication. Pour commencer un draft, créez simplement un répertoire appelé `_drafts` dans le répertoire source de votre site (par ex. à côté de `_posts`), et ajoutez-lui un nouveau fichier markdown. Pour prévisualiser votre nouveau post, lancez  simplement la commande `jekyll serve` avec le flag `--drafts`.
 
 <div class="note info">
-  <h5 markdown="1">Drafts don't have dates</h5>
+  <h5 markdown="1">Les drafts n'ont pas de dates</h5>
   <p markdown="1">
-    Unlike posts, drafts don't have a date, since they haven't
-    been published yet. Rather than naming your draft something like
-    `2013-07-01-my-draft-post.md`, simply name the file what you'd like your
-    post to eventually be titled, here `my-draft-post.md`.</p>
+    À la différences des posts, les drafts n'ont pas de date, parce qu'ils n'ont pas encore été publiés. Plutôt que de nommer votre draft comme quelque chose de type 
+    `2013-07-01-mon-post-brouillon.md`, nommez simplement le fichier que vous aimeriez poster ici comme quelque chose du type `mon-post-brouillon.md`.</p>
 </div>
 
-### Custom Config File
+### Personnaliser le Fichier Config
 
-Rather than passing individual flags via the command line, you can now pass an
-entire custom Jekyll config file. This helps to distinguish between
-environments, or lets you programmatically override user-specified defaults.
-Simply add the `--config` flag to the `jekyll` command, followed by the path
-to one or more config files (comma-delimited, no spaces).
+Plutôt que de passer les flags individuels via la ligne de commande, vous pouvez maintenant passer un fichier personnalisé de config Jekyll complet. Ceci aide à faire la distinction entre les environnements, ou vous permet d'écraser les valeurs par défaut spécifiées-par-l'utilisateur. Ajoutez simplement le flag `--config` à la commande `jekyll`, suivi du chemin vers un ou plus fichiers de configuration (délimités par des virgules, pas des espaces).
 
-#### As a result, the following command line flags are now deprecated:
+#### Résultat, les flags de ligne de commande suivants sont désormais dépréciés : 
 
 * `--no-server`
 * `--no-auto`
-* `--auto` (now `--watch`)
+* `--auto` (maintenant `--watch`)
 * `--server`
 * `--url=`
-* `--maruku`, `--rdiscount`, and `--redcarpet`
+* `--maruku`, `--rdiscount`, et `--redcarpet`
 * `--pygments`
 * `--permalink=`
 * `--paginate`
 
 <div class="note info">
-  <h5>The config flag explicitly specifies your configuration file(s)</h5>
-  <p markdown="1">If you use the `&#45;&#45;config` flag, Jekyll will ignore your
-    `&#95;config.yml` file. Want to merge a custom configuration with the normal
-    configuration? No problem. Jekyll will accept more than one custom config
-    file via the command line. Config files cascade from right to left, such
-    that if I run `jekyll serve &#45;&#45;config &#95;config.yml,&#95;config-dev.yml`,
-    the values in the config files on the right (`&#95;config-dev.yml`) overwrite
-    those on the left (`&#95;config.yml`) when both contain the same key.</p>
+  <h5>Le flag config spécifie explicitement votre (vos) fichier(s) de config.</h5>
+  <p markdown="1">Si vous utilisez le flag `&#45;&#45;config`, Jekyll ignorera votre fichier 
+    `&#95;config.yml`. Vous voulez fusionner une configuration personnalisée avec la configuration normale ? Aucun problème. Jekyll acceptera plus d'un fichier personnalisé de config via la ligne de commande. Les fichiers de config sont en cascade de droite à gauche, comme si je fais tourner 
+    `jekyll serve &#45;&#45;config &#95;config.yml,&#95;config-dev.yml`,
+    les valeurs dans les fichiers config sur la droite (`&#95;config-dev.yml`) écrasent celles sur la gauche  (`&#95;config.yml`) quand les deux contiennent la même clé.</p>
 </div>
 
-### New Config File Options
+### Nouvelles Options du Fichier Config
 
-Jekyll 1.0 introduced several new config file options. Before you upgrade, you
-should check to see if any of these are present in your pre-1.0 config file, and
-if so, make sure that you're using them properly:
+Jekyll 1.0 a introduit de novuelles options du fichier config. Avant de mettre à jour, vous devriez vérifier si celles-ci sont présentes dans votre fichier de config pre-1.0, et si oui, vous assurer de les utiliser proprement :
 
 * `excerpt_separator`
 * `host`
@@ -123,24 +96,11 @@ if so, make sure that you're using them properly:
 
 ### Baseurl
 
-Often, you'll want the ability to run a Jekyll site in multiple places, such as
-previewing locally before pushing to GitHub Pages. Jekyll 1.0 makes that
-easier with the new `--baseurl` flag. To take advantage of this feature, first
-add the production `baseurl` to your site's `_config.yml` file. Then,
-throughout the site, simply prefix relative URLs with `{% raw %}{{ site.baseurl }}{% endraw %}`.
-When you're ready to preview your site locally, pass along the `--baseurl` flag
-with your local baseurl (most likely `/`) to `jekyll serve` and Jekyll will
-swap in whatever you've passed along, ensuring all your links work as you'd
-expect in both environments.
+Souvent, vous voudrez avoir la capacité de faire tourner un site Jekyll à plusieurs endroits, comme une prévisualisation locale avant de pousser vers les Pages GitHub. Jekyll 1.0 facilite cela avec le nouveau flag `--baseurl`. Pour tirer partie de cette fonctionnalité, ajoutez d'abord la `baseurl` de production à votre fichier du site `_config.yml`. Puis, sur tout le site, préfixez simplement les URLs relatives avec `{% raw %}{{ site.baseurl }}{% endraw %}`. Quand vous êtes prêts pour prévisualiser votre site localement, passez le flag `--baseurl` avec votre url de base (probablement `/`) vers `jekyll serve` et Jekyll remplira dedans tout ce que vous avez passé, vous assurant que vos liens fonctionnent comme attendu dans les deux environnements.
 
 
 <div class="note warning">
-  <h5 markdown="1">All page and post URLs contain leading slashes</h5>
-  <p markdown="1">If you use the method described above, please remember
-  that the URLs for all posts and pages contain a leading slash. Therefore,
-  concatenating the site baseurl and the post/page url where
-  `site.baseurl = /` and `post.url = /2013/06/05/my-fun-post/` will
-  result in two leading slashes, which will break links. It is thus
-  suggested that prefixing with `site.baseurl` only be used when the
-  `baseurl` is something other than the default of `/`.</p>
+  <h5 markdown="1">Toutes les URLs de page et post contiennent des slashes devant</h5>
+  <p markdown="1">Si vous utilisez la méthode décrite au-dessus, rappelez-vous que les URLs pour tous les posts et pages commencent par un slash. Par conséquent, en concaténant la baseurl du site et l'url de post/page où 
+  `site.baseurl = /` et `post.url = /2013/06/05/mon-post-fun/` provoquera deux slashes en avant, ce qui brisera les liens. Il est par conséquent suggéré que le fait de préfixer avec `site.baseurl` ne soit uniquement utilisé quand la `baseurl` est quelque chose d'autre que la valeur par défaut `/`.</p>
 </div>

@@ -6,27 +6,24 @@ next_section: permalinks
 permalink: /docs/templates/
 ---
 
-Jekyll uses the [Liquid](http://wiki.shopify.com/Liquid) templating language to
-process templates. All of the standard Liquid [tags](http://wiki.shopify.com/Logic) and
-[filters](http://wiki.shopify.com/Filters) are
-supported. Jekyll even adds a few handy filters and tags of its own to make
-common tasks easier.
+Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) pour traiter les templates. Tous les [tags](http://wiki.shopify.com/Logic) standard Liquid et 
+[filtres](http://wiki.shopify.com/Filters) sont supportés. Jekyll ajoute en plus quelques filtres et tags pratiques pour faciliter des tâches communes.
 
-## Filters
+## Filtres
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
       <th>Description</th>
-      <th><span class="filter">Filter</span> and <span class="output">Output</span></th>
+      <th><span class="filter">Filtre</span> et <span class="output">Output</span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <p class='name'><strong>Date to XML Schema</strong></p>
-        <p>Convert a Date into XML Schema (ISO 8601) format.</p>
+        <p class='name'><strong>Date to XML Schema </strong></p>
+        <p>Convertit une Date au format Schéma XML (ISO 8601).</p>
       </td>
       <td class='align-center'>
         <p>
@@ -40,7 +37,7 @@ common tasks easier.
     <tr>
       <td>
         <p class='name'><strong>Date to RFC-822 Format</strong></p>
-        <p>Convert a Date into the RFC-822 format used for RSS feeds.</p>
+        <p>Convertit une Date dans le format RFC-822 utilisé pour les flux RSS.</p>
       </td>
       <td class='align-center'>
         <p>
@@ -54,7 +51,7 @@ common tasks easier.
     <tr>
       <td>
         <p class='name'><strong>Date to String</strong></p>
-        <p>Convert a date to short format.</p>
+        <p>Convertit une date pour raccourcir le format.</p>
       </td>
       <td class='align-center'>
         <p>
@@ -82,7 +79,7 @@ common tasks easier.
     <tr>
       <td>
         <p class='name'><strong>XML Escape</strong></p>
-        <p>Escape some text for use in XML.</p>
+        <p>Escape quelque texte pour usage en XML.</p>
       </td>
       <td class='align-center'>
         <p>
@@ -165,7 +162,7 @@ common tasks easier.
     <tr>
       <td>
         <p class='name'><strong>Markdownify</strong></p>
-        <p>Convert a Markdown-formatted string into HTML.</p>
+        <p>Convertit une chaîne formaté-Markdown en HTML.</p>
       </td>
       <td class='align-center'>
         <p>
@@ -192,50 +189,42 @@ common tasks easier.
 
 ### Includes
 
-If you have small page fragments that you wish to include in multiple places on
-your site, you can use the `include` tag.
+Si vous avez des petits fragments de page que vous souhaitez inclure à plusieurs endroits sur votre site, vous pouvez utiliser le tag `include`.
 
 {% highlight ruby %}
 {% raw %}{% include footer.html %}{% endraw %}
 {% endhighlight %}
 
-Jekyll expects all include files to be placed in an `_includes` directory at the
-root of your source directory. This will embed the contents of
-`<source>/_includes/footer.html` into the calling file.
+Jekyll s'attend à ce que tous les fichiers include soient placés dans un répertoire `_includes` à la racine de votre répertoire source. Ceci embarquera les contenus du `<source>/_includes/footer.html` à l'intérieur du fichier appelé.
 
 <div class="note">
-  <h5>ProTip™: Use variables as file name</h5>
+  <h5>ProTruc™ : Utilisez les variables comme un nom de fichier</h5>
   <p>
 
-    The name of the file you wish to embed can be literal (as in the example above),
-    or you can use a variable, using liquid-like variable syntax as in
-    <code>{% raw %}{% include {{my_variable}} %}{% endraw %}</code>.
-
-    Note that unlike usual liquid variable syntax, you cannot have spaces inside the curly braces.
-
-  </p>
+    Le nom de fichier que vous souhaitez embarquer peut être littéral (comme dans l'exemple au-dessus), 
+    ou vous pouvez utiliser une variable, en utilisant une syntaxe variable de type-Liquid comme dans 
+    <code>{% raw %}{% include {{ ma_variable }} %}{% endraw %}</code>.
+   </p>
 </div>
 
-You can also pass parameters to an include:
+Vous pouvez aussi les paramètres vers un include :
 
 {% highlight ruby %}
 {% raw %}{% include footer.html param="value" %}{% endraw %}
 {% endhighlight %}
 
-These parameters are available via Liquid in the include:
+Ces paramètres sont disponibles via Liquid dans l'include : 
 
 {% highlight ruby %}
 {% raw %}{{ include.param }}{% endraw %}
 {% endhighlight %}
 
-### Code snippet highlighting
+### Coloration Syntaxique de fragment de code
 
-Jekyll has built in support for syntax highlighting of [over 100
-languages](http://pygments.org/languages/) thanks to
-[Pygments](http://pygments.org/). To use Pygments, you must have Python installed on your
-system and set `pygments` to `true` in your site's configuration file.
+Jekyll a un support intégré pour la coloration syntaxique sur [plus de 100
+langages](http://pygments.org/languages/) grâce à [Pygments](http://pygments.org/). Pour utiliser Pygments, vous devez avoir installé Python sur votre système et régler `pygments` sur `true` dans le fichier de configuration de votre site.
 
-To render a code block with syntax highlighting, surround your code as follows:
+Pour afficher un bloc de code avec une coloration syntaxique, entourez votre cotre code comme suit : 
 
 {% highlight text %}
 {% raw %}
@@ -247,17 +236,13 @@ end
 {% endraw %}
 {% endhighlight %}
 
-The argument to the `highlight` tag (`ruby` in the example above) is the
-language identifier. To find the appropriate identifier to use for the language
-you want to highlight, look for the “short name” on the [Lexers
-page](http://pygments.org/docs/lexers/).
+L'argument vers le tag `highlight` (`ruby` dans l'exemple au-dessus) est l'identifiant du langage. 
+Pour trouver l'identifiant adéquat à utiliser pour le langage que vous voulez colorer, regardez son raccourci -le “short name”- sur la [page Lexers](http://pygments.org/docs/lexers/).
 
-#### Line numbers
+#### Numéros de ligne
 
-There is a second argument to `highlight` called `linenos` that is optional.
-Including the `linenos` argument will force the highlighted code to include line
-numbers. For instance, the following code block would include line numbers next
-to each line:
+Il existe un second argument à `highlight` appelé `linenos` qui est optionnel.
+Inclure l'argument `linenos` forcera le code coloré à inclure les numéros de ligne. Par exemple, le bloc de code suivant inclura des numéros de ligne à côté de chaque ligne :
 
 {% highlight text %}
 {% raw %}
@@ -269,49 +254,41 @@ end
 {% endraw %}
 {% endhighlight %}
 
-#### Stylesheets for syntax highlighting
+#### Feuiles de Style pour la coloration syntaxique
 
-In order for the highlighting to show up, you’ll need to include a highlighting
-stylesheet. For an example stylesheet you can look at
-[syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css). These
-are the same styles as used by GitHub and you are free to use them for your own
-site. If you use `linenos`, you might want to include an additional CSS class
-definition for the `.lineno` class in `syntax.css` to distinguish the line
-numbers from the highlighted code.
+Afin que la coloration s'affiche, vous devrez inclure une feuille de style de mise en valeur. Pour un exemple de feuille de style, vous pouvez regarder [syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css). Ce sont les mêmes styles que ceux utilisés par GitHub et vous êtes libres de les utiliser pour votre propre site. Si vous utilisez `linenos`, vous pourriez vouloir inclure une définition de classe supplémentaire CSS pour la classe  `.lineno` dans `syntax.css` afin de distinguer les numéros de ligne provenant du code mis en valeur.
 
-### Post URL
+### URL de Post
 
-If you would like to include a link to a post on your site, the `post_url` tag
-will generate the correct permalink URL for the post you specify.
+Si vous voulez inclure un lien à l'intérieur d'un post sur votre site, le tag `post_url` générera le permalien URL correct pour le post que vous spécifiez.
 
 {% highlight text %}
 {% raw %}
-{% post_url 2010-07-21-name-of-post %}
+{% post_url 2010-07-06-nom-du-post %}
 {% endraw %}
 {% endhighlight %}
 
-If you organize your posts in subdirectories, you need to include subdirectory 
-path to the post:
+Si vous organisez vos posts dans des sous-répertoires, vous devrez inclure un chemin de sous-répertoire vers le post : 
 
 {% highlight text %}
 {% raw %}
-{% post_url /subdir/2010-07-21-name-of-post %}
+{% post_url /subdir/2010-07-21-nom-du-post %}
 {% endraw %}
 {% endhighlight %}
 
-There is no need to include the file extension when using the `post_url` tag.
+Il n'y aura pas besoin d'inclure l'extension de fichier au moment d'utiliser le tag `post_url`.
 
-You can also use this tag to create a link to a post in Markdown as follows:
+Vous pouvez aussi utiliser ce tag pour créer un lien vers un post en Markdown comme suit  :
 
 {% highlight text %}
 {% raw %}
-[Name of Link]({% post_url 2010-07-21-name-of-post %})
+[Nom du Lien]({% post_url 2010-07-06-nom-du-post %})
 {% endraw %}
 {% endhighlight %}
 
 ### Gist
 
-Use the `gist` tag to easily embed a GitHub Gist onto your site:
+Utilisez le tag `gist` pour embarquer facilement un Gist GitHub Gist sur votre site : 
 
 {% highlight text %}
 {% raw %}
@@ -319,7 +296,7 @@ Use the `gist` tag to easily embed a GitHub Gist onto your site:
 {% endraw %}
 {% endhighlight %}
 
-You may also optionally specify the filename in the gist to display:
+Vous pouvez spécifier optionnellement le nom de fichier dans le gist à afficher : 
 
 {% highlight text %}
 {% raw %}
@@ -327,8 +304,7 @@ You may also optionally specify the filename in the gist to display:
 {% endraw %}
 {% endhighlight %}
 
-The `gist` tag also works with private gists, which require the gist owner's
-github username:
+Le tag `gist` fonctionne aussi avec des gists privés, qui requièrent le nom d'utilisateur github du propriétaire du gist :
 
 {% highlight text %}
 {% raw %}
@@ -336,4 +312,4 @@ github username:
 {% endraw %}
 {% endhighlight %}
 
-The private gist syntax also supports filenames.
+La syntaxe pour le gist privé supporte aussi les noms de fichiers.

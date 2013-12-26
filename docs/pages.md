@@ -1,50 +1,36 @@
 ---
 layout: docs
-title: Creating pages
+title: Créer des Pages
 prev_section: drafts
 next_section: variables
 permalink: /docs/pages/
 ---
 
-In addition to [writing posts](../posts/), another thing you may want to do with
-your Jekyll site is create static pages. By taking advantage of the way Jekyll
-copies files and directories, this is easy to do.
+Outre le fait de pouvoir [écrire des posts](../posts/), une autre chose que vous pouvez vouloir faire avec votre site Jekyll, c'est de créer des pages statiques. En tirant profit de la manière avec laquelle Jekyll copie les fichiers et répertoires, ceci est facile à faire.
 
-## Homepage
+## Page d'accueil
 
-Just about every web server configuration you come across will look for an HTML
-file called `index.html` (by convention) in the site's root folder and display
-that as the homepage. Unless the web server you’re using is configured to look
-for some different filename as the default, this file will turn into the
-homepage of your Jekyll-generated site.
+Sur presque toute configuration de serveur web que vous croisez, vous cherchez un fichier HTML appelé (par convention) `index.html` dans le répertoire racine du cite et affichez ça comme page d'accueil. À moins que le serveur web que vous utilisiez ne soit configuré par défaut pour chercher un nom de fichier différent, ce fichier s'activera à l'intérieur de la page d'accueil de votre site web généré par Jekyll.
 
 <div class="note">
-  <h5>ProTip™: Use layouts on your homepage</h5>
+  <h5>ProTip™ : Utilisez les layouts sur votre page d'accueil</h5>
   <p>
-    Any HTML file on your site can use layouts and/or includes, even the
-    homepage. Common content, like headers and footers, make excellent
-    candidates for extraction into a layout.
+    Tout fichier HTML sur votre site peut utiliser des layouts, même la page d'accueil. Le contenu commun comme les en-têtes et pieds de pages, sont d'excellents candidats pour l'extraction à l'intérieur d'un layout.
   </p>
 </div>
 
-## Where additional pages live
+## Où vivent les pages additionnelles
 
-Where you put HTML files for pages depends on how you want the pages to work.
-There are two main ways of creating pages:
+L'endroit où vous posez des fichiers HTML pour les pages dépend de la manière dont vous voulez faire fonctionner les pages. Il existe deux moyens principaux pour créer des pages :
 
-- Place named HTML files for each page in your site's root folder.
-- Create a folder in the site's root for each page, and place an index.html file
-  in each page folder.
+- Placez les fichiers nommés HTML pour chaque page dans le répertoire racine de votre site.
+- Créez un répertoire dans la racine du site pour chaque page, et placez un fichier index.html dans chaque répertoire de page.
 
-Both methods work fine (and can be used in conjunction with each other),
-with the only real difference being the resulting URLs.
+Les deux méthodes fonctionnent bien (et peuvent être utilisés l'une et l'autre), la seule véritable différence étant les URLs résultantes.
 
-### Named HTML files
+### Fichiers HTML nommés
 
-The simplest way of adding a page is just to add an HTML file in the root
-directory with a suitable name for the page you want to create. For a site with
-a homepage, an about page, and a contact page, here’s what the root directory
-and associated URLs might look like:
+Le moyen le plus simple d'ajouter une page est simplement d'ajouter un fichier HTML dans le répertoire racine avec un nom adapté pour la page que vous voulez créer. Pour un site avec page d'accueil, une page à propos et une page contact, voici à quoi pourraient ressembler le répertoire racine et les URLs associés :
 
 {% highlight bash %}
 .
@@ -53,20 +39,15 @@ and associated URLs might look like:
 |-- _layouts/
 |-- _posts/
 |-- _site/
-|-- about.html    # => http://example.com/about.html
-|-- index.html    # => http://example.com/
-└── contact.html  # => http://example.com/contact.html
+|-- about.html    # => http://exemple.com/about.html
+|-- index.html    # => http://exemple.com/
+└── contact.html  # => http://exemple.com/contact.html
 {% endhighlight %}
 
-### Named folders containing index HTML files
+### Répertoires nommés contenant des fichiers HTML index
 
-There is nothing wrong with the above method, however some people like to keep
-their URLs free from things like filename extensions. To achieve clean URLs for
-pages using Jekyll, you simply need to create a folder for each top-level page
-you want, and then place an `index.html` file in each page’s folder. This way
-the page URL ends up being the folder name, and the web server will serve up the
-respective `index.html` file. Here's an example of what this structure might
-look like:
+Il n'y a rien de faux avec la méthode du dessus, néanmoins certaines personnes préfèrent conserver leurs URLs libres de trucs comme les extensions de noms de fichier. Pour obtenir des URLs propres pour les pages utilisant Jekyll, vous devez simplement créer un répertoire pour chaque page du niveau le plus haut que vous désirez, et puis placer un fichier `index.html` dans chaque répertoire de page. De cette façon, l'URL de la page finit par prendre le nom du dossier, et le serveur web servira le fichier `index.html`. 
+Voici un exemple d'une telle structure :
 
 {% highlight bash %}
 .
@@ -76,11 +57,11 @@ look like:
 ├── _posts/
 ├── _site/
 ├── about/
-|   └── index.html  # => http://example.com/about/
+|   └── index.html  # => http://exemple.com/about/
 ├── contact/
-|   └── index.html  # => http://example.com/contact/
-└── index.html      # => http://example.com/
+|   └── index.html  # => http://exemple.com/contact/
+└── index.html      # => http://exemple.com/
 {% endhighlight %}
 
-This approach may not suit everyone, but for people who like clean URLs it’s
-simple and it works. In the end the decision is yours!
+Cette approche peut ne pas correspondre à tous. Mais pour les personnes qui aiment les URLs propres, c'est simple et ça fonctionne. 
+La décision finale vous appartient ! 

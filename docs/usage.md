@@ -1,63 +1,57 @@
 ---
 layout: docs
-title: Basic Usage
+title: Usage Basique
 prev_section: installation
 next_section: structure
 permalink: /docs/usage/
 ---
 
-The Jekyll gem makes a `jekyll` executable available to you in your Terminal
-window. You can use this command in a number of ways:
+Le gem Jekyll produit un exécutable `jekyll` disponible pour vous dans votre fenêtre de Terminal. Vous pouvez utiliser ces commandes de différentes manières :
 
 {% highlight bash %}
 $ jekyll build
-# => The current folder will be generated into ./_site
+# => Le répertoire en cours sera généré à l'intérieur de ./_site
 
 $ jekyll build --destination <destination>
-# => The current folder will be generated into <destination>
+# => Le répertoire en cours sera généré à l'intérieur de <destination>
 
 $ jekyll build --source <source> --destination <destination>
-# => The <source> folder will be generated into <destination>
+# => Le répertoire <source> sera généré à l'intérieur de <destination>
 
 $ jekyll build --watch
-# => The current folder will be generated into ./_site,
-#    watched for changes, and regenerated automatically.
+# => Le répertoire en cours sera généré à l'intérieur de ./_site,
+#    regardé pour des modifications et regénéré automatiquement.
 {% endhighlight %}
 
-Jekyll also comes with a built-in development server that will allow you to
-preview what the generated site will look like in your browser locally.
+Jekyll vient aussi avec un serveur intégré de développement qui vous permettra de prévisualiser à quoi ressemblera le site généré localement dans votre navigateur.
 
 {% highlight bash %}
 $ jekyll serve
-# => A development server will run at http://localhost:4000/
+# => Un serveur de développement fonctionnera sur http://localhost:4000/
 
 $ jekyll serve --detach
-# => Same as `jekyll serve` but will detach from the current terminal.
-#    If you need to kill the server, you can `kill -9 1234` where "1234" is the PID.
-#    If you cannot find the PID, then do, `ps aux | grep jekyll` and kill the instance. [Read more](http://unixhelp.ed.ac.uk/shell/jobz5.html).
+# => Même chose que `jekyll serve` mais détachera à partir du terminal en cours.
+#    Si vous n'avez pas besoin de killer le serveur, vous pouvez lancer `kill -9 1234` où "1234" est le PID.
+#    Si vous ne savez pas trouver le PID, alors faites, `ps aux | grep jekyll` et killez l'instance. [En savoir plus](http://unixhelp.ed.ac.uk/shell/jobz5.html).
 
 $ jekyll serve --watch
-# => Same as `jekyll serve`, but watch for changes and regenerate automatically.
+# => Même chose que `jekyll serve`, mais cherche les modifications et régénère automatiquement.
 {% endhighlight %}
 
-These are just a few of the available [configuration options](../configuration/).
-Many configuration options can either be specified as flags on the command line,
-or alternatively (and more commonly) they can be specified in a `_config.yml`
-file at the root of the source directory. Jekyll will automatically use the
-options from this file when run. For example, if you place the following lines
-in your `_config.yml` file:
+Ce ne sont que quelques-unes des [options de configuration](../configuration/) disponibles.
+Beaucoup d'options de configuration peuvent être spécifiées soit comme des flags sur la ligne de commande, ou alternativement (et plus communément) elles peuvent être spécifiées dans un fichier `_config.yml` placé à la racine du répertoire source. Jekyll utilisera automatiquement les options à partir de ce fichier quand il tourne. Par exemple, si vous placez les lignes suivantes dans votre fichier `_config.yml` :
 
 {% highlight yaml %}
 source:      _source
 destination: _deploy
 {% endhighlight %}
 
-Then the following two commands will be equivalent:
+Alors les deux commandes qui suivent seront équivalentes : 
 
 {% highlight bash %}
 $ jekyll build
 $ jekyll build --source _source --destination _deploy
 {% endhighlight %}
 
-For more about the possible configuration options, see the
-[configuration](../configuration/) page.
+Pour en savoir plus sur les options possibles de configuration, voir la page 
+[configuration](../configuration/).

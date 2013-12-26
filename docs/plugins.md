@@ -6,79 +6,72 @@ next_section: extras
 permalink: /docs/plugins/
 ---
 
-Jekyll has a plugin system with hooks that allow you to create custom generated
-content specific to your site. You can run custom code for your site without
-having to modify the Jekyll source itself.
+Jekyll a un système de plugin avec des hooks qui vous permettent du contenu spécifique à votre site. Vous pouvez faire tourner du code personnalisé pour votre site sans devoir modifier le source Jekyll.
 
 <div class="note info">
-  <h5>Plugins on GitHub Pages</h5>
+  <h5>Plugins sur Pages GitHub</h5>
   <p>
-    <a href="http://pages.github.com/">GitHub Pages</a> is powered by Jekyll,
-    however all Pages sites are generated using the <code>--safe</code> option
-    to disable custom plugins for security reasons. Unfortunately, this means
-    your plugins won’t work if you’re deploying to GitHub Pages.<br><br>
-    You can still use GitHub Pages to publish your site, but you’ll need to
-    convert the site locally and push the generated static files to your GitHub
-    repository instead of the Jekyll source files.
+    <a href="http://pages.github.com/">GitHub Pages</a> est motorisé par Jekyll,
+    néanmoins tous les sites Pages sont générés en utilisant l'option <code>--safe</code> 
+    pour désactiver les plugins personnalisés pour des raisons de sécurité. Malheureusement, ceci veut dire que 
+    vos plugins ne fonctionneront pas si vous déployez vers un hébergement GitHub Pages.<br><br>
+    Vous pouvez encore utiliser GitHub Pages pour publier votre site, mais vous devrez convertir le site localement 
+    et pousser les fichiers statiques générés vers votre dépôt GitHub au lieu des fichiers source Jekyll.
   </p>
 </div>
 
-## Installing a plugin
+## Installer un plugin
 
-You have 2 options for installing plugins:
+Vous avez 2 options pour installer des plugins :
 
-1. In your site source root, make a `_plugins` directory. Place your plugins here.
-    Any file ending in `*.rb` inside this directory will be loaded before Jekyll
-    generates your site.
-2. In your `_config.yml` file, add a new array with the key `gems` and the values
-    of the gem names of the plugins you'd like to use. An example:
+1. Dans votre racine de site source, créez un répertoire `_plugins`. Placez vos plugins dedans.
+    Tout fichier se terminant par `*.rb` dans ce dossier sera chargé avant que Jekyll ne génère votre site.
+2. Dans votre fichier `_config.yml`, ajoutez un nouvel array avec les `gems` clés et les valeurs des noms 
+   des gems des plugins que vous aimeriez utiliser. Un exemple : 
 
         gems: [jekyll-test-plugin, jekyll-jsonify, jekyll-assets]
         # This will require each of these gems automatically.
 
 <div class="note info">
   <h5>
-    <code>_plugins</code> and <code>gems</code>
-    can be used simultaneously
+    <code>_plugins</code> et <code>gems</code>
+    peuvent être utilisés simultanément
   </h5>
   <p>
-    You may use both of the aforementioned plugin options simultaneously in the
-    same site if you so choose. Use of one does not restrict the use of the other
+    Vous pouvez utiliser à la fois les options de plugin mentionnées plus haut simultanément dans le même 
+    site si vous choisissez de faire ainsi. L'usage de l'un ne restreint pas l'usage de l'autre
   </p>
 </div>
 
-In general, plugins you make will fall into one of three categories:
+En général, les plugins que vous construisez tomberont dans l'une des trois catégories : 
 
-1. Generators
-2. Converters
+1. Générateurs
+2. Convertisseurs
 3. Tags
 
-## Generators
+## Générateurs
 
-You can create a generator when you need Jekyll to create additional content
-based on your own rules.
+Vous pouvez créer un générateur quand vous voulez que Jekyll crée un contenu additionnel basé sur vos propres règles.
 
-A generator is a subclass of `Jekyll::Generator` that defines a `generate`
-method, which receives an instance of
+Un générateur est une sous-classe de `Jekyll::Generator` qui définit une méthode `generate`
+qui reçoit une instance de 
 [`Jekyll::Site`]({{ site.repository }}/blob/master/lib/jekyll/site.rb).
 
-Generation is triggered for its side-effects, the return value of `generate` is
-ignored. Jekyll does not assume any particular side-effect to happen, it just
-runs the method.
+La génération est déclenchée par ses effets de bord, la valeur retour de `generate` est
+ignorée. Jekyll ne suppose pas que toute effet de bord particulier arrive, il fait juste fonctionner la méthode.
 
-Generators run after Jekyll has made an inventory of the existing content, and
-before the site is generated. Pages with YAML front-matters are stored as
-instances of
+Les générateurs fonctionnent après que Jekyll ait produit un inventaire du contenu existant, et avant que le site ne soit généré.
+Les Pages avec des front-matters YAML sont stockées comme des instances de 
 [`Jekyll::Page`]({{ site.repository }}/blob/master/lib/jekyll/page.rb)
-and are available via `site.pages`. Static files become instances of
+et sont disponibles via `site.pages`. Les fichiers statiques deviennent des instances de 
 [`Jekyll::StaticFile`]({{ site.repository }}/blob/master/lib/jekyll/static_file.rb)
-and are available via `site.static_files`. See
+et sont disponibles via `site.static_files`. Voir 
 [`Jekyll::Site`]({{ site.repository }}/blob/master/lib/jekyll/site.rb)
-for more details.
+pour plus de détails.
 
-For instance, a generator can inject values computed at build time for template
-variables. In the following example the template `reading.html` has two
-variables `ongoing` and `done` that we fill in the generator:
+Par exemple, un générateur peut injecter des valeurs calculée sur le temps de construction pour des variables template. 
+Dans l'exemple suivant le template `reading.html` a deux 
+variables `ongoing` et `done` que nous remplissons dans le générateur : 
 
 {% highlight ruby %}
 module Reading
@@ -94,7 +87,7 @@ module Reading
 end
 {% endhighlight %}
 
-This is a more complex generator that generates new pages:
+Ceci est un générateur plus complexe qui génère de nouvelles pages :
 
 {% highlight ruby %}
 module Jekyll
@@ -131,17 +124,17 @@ module Jekyll
 end
 {% endhighlight %}
 
-In this example, our generator will create a series of files under the
-`categories` directory for each category, listing the posts in each category
-using the `category_index.html` layout.
+Dans cet exemple, notre générateur créera une série de fichiers sous le 
+répertoire `categories` pour chaque catégorie, listant les posts dans chaque catégorie
+en utilisant le layout `category_index.html`.
 
-Generators are only required to implement one method:
+Les générateurs exigent uniquement d'implémenter une méthode : 
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Method</th>
+      <th>Méthode</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -151,29 +144,26 @@ Generators are only required to implement one method:
         <p><code>generate</code></p>
       </td>
       <td>
-        <p>Generates content as a side-effect.</p>
+        <p>Génère du contenu comme un effet de bord.</p>
       </td>
     </tr>
   </tbody>
 </table>
 </div>
 
-## Converters
+## Convertisseurs
 
-If you have a new markup language you’d like to use with your site, you can
-include it by implementing your own converter. Both the Markdown and Textile
-markup languages are implemented using this method.
+Si vous avez un nouveau langage de marquage que vous aimeriez utiliser sur votre site, vous pouvez l'ajouter en implémentant votre propre convertisseur. 
+Les deux langages de marquage Markdown et Textile sont implémentés en utilisant cette méthode.
 
 <div class="note info">
-  <h5>Remember your YAML front-matter</h5>
+  <h5>Souvenez-vous de votre front-matter YAML</h5>
   <p>
-    Jekyll will only convert files that have a YAML header at the top, even for
-    converters you add using a plugin.
+    Jekyll ne convertira que les fichiers qui ont un en-tête YAML en haut, même pour les convertisseurs que vous ajoutez en utilisant un plugin.
   </p>
 </div>
 
-Below is a converter that will take all posts ending in `.upcase` and process
-them using the `UpcaseConverter`:
+Ci-dessous un convertisseur qui prendra tous les posts se terminant par `.upcase` et les traitera en utilisant `UpcaseConverter`:
 
 {% highlight ruby %}
 module Jekyll
@@ -196,13 +186,13 @@ module Jekyll
 end
 {% endhighlight %}
 
-Converters should implement at a minimum 3 methods:
+Les Convertisseurs devraient implémenter au minimum 3 méthodes : 
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Method</th>
+      <th>Méthode</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -212,10 +202,9 @@ Converters should implement at a minimum 3 methods:
         <p><code>matches</code></p>
       </td>
       <td><p>
-        Does the given extension match this converter’s list of acceptable
-        extensions? Takes one argument: the file’s extension (including the
-        dot). Must return <code>true</code> if it matches, <code>false</code>
-        otherwise.
+        Est-ce que l'extension donnée correspond à cette liste d'extensions acceptable de convertisseur ? 
+        Prenez un argument : l'extension du fichier (y compris le point). Doit retourner 
+        <code>true</code> si ça correspond, sinon <code>false</code>.
       </p></td>
     </tr>
     <tr>
@@ -223,8 +212,8 @@ Converters should implement at a minimum 3 methods:
         <p><code>output_ext</code></p>
       </td>
       <td><p>
-        The extension to be given to the output file (including the dot).
-        Usually this will be <code>".html"</code>.
+        L'extension à donner au fichier de sortie (y compris le point).
+        Généralement ce sera <code>".html"</code>.
       </p></td>
     </tr>
     <tr>
@@ -232,26 +221,26 @@ Converters should implement at a minimum 3 methods:
         <p><code>convert</code></p>
       </td>
       <td><p>
-        Logic to do the content conversion. Takes one argument: the raw content
-        of the file (without YAML front matter). Must return a String.
+        Logique pour faire la conversion de contenu. Prend un argument : le contenu brut
+        du fichier (sans le front matter YAML). Doit renvoyer une chaîne.
       </p></td>
     </tr>
   </tbody>
 </table>
 </div>
 
-In our example, `UpcaseConverter#matches` checks if our filename extension is
-`.upcase`, and will render using the converter if it is. It will call
-`UpcaseConverter#convert` to process the content. In our simple converter we’re
-simply uppercasing the entire content string. Finally, when it saves the page,
-it will do so with a `.html` extension.
+Dans notre exemple, `UpcaseConverter#matches` vérifie si notre extension de nom de fichier est 
+`.upcase`, et sera restituée en utilisant le convertisseur s'il existe. Il appellera 
+`UpcaseConverter#convert` pour traiter le contenu. Dans notre convertisseur simple, nous somme simplement en train 
+de mettre en capitales la totalité de la chaîne de contenu. Pour finri, quand il sauvegarde la page, 
+il fera ainsi avec une extension `.html`.
 
 ## Tags
 
-If you’d like to include custom liquid tags in your site, you can do so by
-hooking into the tagging system. Built-in examples added by Jekyll include the
-`highlight` and `include` tags. Below is an example of a custom liquid tag that
-will output the time the page was rendered:
+Si vous aimeriez inclure des tags personnalisés liquid dans votre site, vous pouvez faire ainsi en 
+hookant à l'intérieur du système de tag. Les exemples intégrés ajoutés par Jekyll incluent les tags 
+`highlight` et `include`. Ci-dessous un exemple de tag personnalisé liquid qui produira l'heure à laquelle la page a 
+été restituée :  
 
 {% highlight ruby %}
 module Jekyll
@@ -271,13 +260,13 @@ end
 Liquid::Template.register_tag('render_time', Jekyll::RenderTimeTag)
 {% endhighlight %}
 
-At a minimum, liquid tags must implement:
+Au minimum, les tags liquide doivent implémenter : 
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Method</th>
+      <th>Méthode</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -287,47 +276,44 @@ At a minimum, liquid tags must implement:
         <p><code>render</code></p>
       </td>
       <td>
-        <p>Outputs the content of the tag.</p>
+        <p>Sort le contenu du tag.</p>
       </td>
     </tr>
   </tbody>
 </table>
 </div>
 
-You must also register the custom tag with the Liquid template engine as
-follows:
+Vous devez aussi enregistrer le tag personnalisé avec le moteur de template Liquide comme suit : 
 
 {% highlight ruby %}
 Liquid::Template.register_tag('render_time', Jekyll::RenderTimeTag)
 {% endhighlight %}
 
-In the example above, we can place the following tag anywhere in one of our
-pages:
+Dans l'exemple du dessus, nous pouvons placer le tag suivant dans l'une de nos pages : 
 
 {% highlight ruby %}
 {% raw %}
-<p>{% render_time page rendered at: %}</p>
+<p>{% page produite le : render_time %}</p>
 {% endraw %}
 {% endhighlight %}
 
-And we would get something like this on the page:
+Et nous obtiendrons quelque chose comme ça sur la page : 
 
 {% highlight html %}
-<p>page rendered at: Tue June 22 23:38:47 –0500 2010</p>
+<p>page produite le : Tue June 22 23:38:47 –0500 2010</p>
 {% endhighlight %}
 
-### Liquid filters
+### Filtres Liquid 
 
-You can add your own filters to the Liquid template system much like you can add
-tags above. Filters are simply modules that export their methods to liquid. All
-methods will have to take at least one parameter which represents the input of
-the filter. The return value will be the output of the filter.
+Vous pouvez ajouter vos propres filtres au système de template Liquid tout comme vous pouvez ajouter les tags au-dessus. 
+Les filtres sont simplement des modules qui exportent leurs méthodes vers liquid. Toutes les 
+méthodes devront avoir au moins un paramètre qui représente l'input du filtre. La valeur retour sera l'output du filtre.
 
 {% highlight ruby %}
 module Jekyll
   module AssetFilter
     def asset_url(input)
-      "http://www.example.com/#{input}?#{Time.now.to_i}"
+      "http://www.exemple.com/#{input}?#{Time.now.to_i}"
     end
   end
 end
@@ -336,18 +322,18 @@ Liquid::Template.register_filter(Jekyll::AssetFilter)
 {% endhighlight %}
 
 <div class="note">
-  <h5>ProTip™: Access the site object using Liquid</h5>
+  <h5>ProTip™ : Accéder à l'objet du site en utilisant Liquid</h5>
   <p>
-    Jekyll lets you access the <code>site</code> object through the
-    <code>context.registers</code> feature of Liquid at <code>context.registers[:site]</code>. For example, you can
-    access the global configuration file <code>_config.yml</code> using
+    Jekyll vous permet d'accéder à l'objet du <code>site</code> à travers la 
+    fonctionnalité <code>context.registers</code> de Liquid sur <code>context.registers[:site]</code>. Par exemple, vous pouvez 
+    accéder au fichier global de configuration <code>_config.yml</code> en utilisant 
     <code>context.registers[:site].config</code>.
   </p>
 </div>
 
 ### Flags
 
-There are two flags to be aware of when writing a plugin:
+Il existe deux flags à connaître au moment d'écrire un plugin : 
 
 <div class="mobile-side-scroller">
 <table>
@@ -364,13 +350,13 @@ There are two flags to be aware of when writing a plugin:
       </td>
       <td>
         <p>
-          A boolean flag that informs Jekyll whether this plugin may be safely
-          executed in an environment where arbitrary code execution is not
-          allowed. This is used by GitHub Pages to determine which core plugins
-          may be used, and which are unsafe to run. If your plugin does not
-          allow for arbitrary code, execution, set this to <code>true</code>.
-          GitHub Pages still won’t load your plugin, but if you submit it for
-          inclusion in core, it’s best for this to be correct!
+          Un flag booléen qui informe Jekyll si ce plugin peut être exécuté en toute sécurité 
+          dans un environnement où l'exécution de code arbitraire n'est pas permise. 
+          Ceci est utilisé par GitHub Pages pour déterminer quels plugins noyaux peuvent être 
+          utilisés et quels sont ceux qui sont peu sûrs à faire fonctionner. Si votre plugin 
+          ne permet pas d'exécution de code arbitraire, réglez ça sur <code>true</code>.
+          GitHub Pages ne vous laissera néanmoins pas charger votre plugin, mais si vous le proposez 
+          pour inclusion dans le noyau, il est préférable pour celui-ci d'être correct !
         </p>
       </td>
     </tr>
@@ -380,10 +366,10 @@ There are two flags to be aware of when writing a plugin:
       </td>
       <td>
         <p>
-          This flag determines what order the plugin is loaded in. Valid values
-          are: <code>:lowest</code>, <code>:low</code>, <code>:normal</code>,
-          <code>:high</code>, and <code>:highest</code>. Highest priority
-          matches are applied first, lowest priority are applied last.
+          Ce flag détermine dans quel ordre le plugin est chargé. Les valeurs valide 
+          sont : <code>:lowest</code>, <code>:low</code>, <code>:normal</code>,
+          <code>:high</code>, et <code>:highest</code>. Les priorités les plus hautes 
+          sont d'abord appliquées, les priorités les plus basses sont appliquées en dernier.
         </p>
       </td>
     </tr>
@@ -391,8 +377,7 @@ There are two flags to be aware of when writing a plugin:
 </table>
 </div>
 
-To use one of the example plugins above as an illustration, here is how you’d
-specify these two flags:
+Pour utiliser un des plugins exemples au-dessus comme illustration, voici comment vous devriez spécifier ces deux flags :
 
 {% highlight ruby %}
 module Jekyll
@@ -404,18 +389,18 @@ module Jekyll
 end
 {% endhighlight %}
 
-## Available Plugins
+## Plugins Disponibles
 
-You can find a few useful plugins at the following locations:
+Vous pouvez trouver quelques plugings utiles aux endroits suivants : 
 
-#### Generators
+#### Générateurs
 
-- [ArchiveGenerator by Ilkka Laukkanen](https://gist.github.com/707909): Uses [this archive page](https://gist.github.com/707020) to generate archives.
-- [LESS.js Generator by Andy Fowler](https://gist.github.com/642739): Renders LESS.js files during generation.
-- [Version Reporter by Blake Smith](https://gist.github.com/449491): Creates a version.html file containing the Jekyll version.
-- [Sitemap.xml Generator by Michael Levin](https://github.com/kinnetica/jekyll-plugins): Generates a sitemap.xml file by traversing all of the available posts and pages.
-- [Full-text search by Pascal Widdershoven](https://github.com/PascalW/jekyll_indextank): Adds full-text search to your Jekyll site with a plugin and a bit of JavaScript.
-- [AliasGenerator by Thomas Mango](https://github.com/tsmango/jekyll_alias_generator): Generates redirect pages for posts when an alias is specified in the YAML Front Matter.
+- [ArchiveGenerator by Ilkka Laukkanen](https://gist.github.com/707909) : Utilisez [cette page archive](https://gist.github.com/707020) pour générer des archives.
+- [LESS.js Generator by Andy Fowler](https://gist.github.com/642739) : Renders LESS.js files during generation.
+- [Version Reporter by Blake Smith](https://gist.github.com/449491) : Creates a version.html file containing the Jekyll version.
+- [Sitemap.xml Generator by Michael Levin](https://github.com/kinnetica/jekyll-plugins) : Generates a sitemap.xml file by traversing all of the available posts and pages.
+- [Full-text search by Pascal Widdershoven](https://github.com/PascalW/jekyll_indextank) : Ajoute une recherche plein-texte à votre site Jekyll avec un plugin et un peu de JavaScript.
+- [AliasGenerator by Thomas Mango](https://github.com/tsmango/jekyll_alias_generator) : Generates redirect pages for posts when an alias is specified in the YAML Front Matter.
 - [Pageless Redirect Generator by Nick Quinlan](https://github.com/nquinlan/jekyll-pageless-redirects): Generates redirects based on files in the Jekyll root, with support for htaccess style redirects.
 - [Projectlist by Frederic Hemberger](https://github.com/fhemberger/jekyll-projectlist): Renders files in a directory as a single page instead of separate posts.
 - [RssGenerator by Assaf Gelber](https://github.com/agelber/jekyll-rss): Automatically creates an RSS 2.0 feed from your posts.
@@ -423,7 +408,7 @@ You can find a few useful plugins at the following locations:
 - [Category archive generator by Shigeya Suzuki](https://github.com/shigeya/jekyll-category-archive-plugin): Generator and template which renders category archive like MovableType style, based on Monthly archive generator.
 - [Emoji for Jekyll](https://github.com/yihangho/emoji-for-jekyll): Seamlessly enable emoji for all posts and pages.
 
-#### Converters
+#### Convertisseurs
 
 - [Jade plugin by John Papandriopoulos](https://github.com/snappylabs/jade-jekyll-plugin): Jade converter for Jekyll.
 - [HAML plugin by Sam Z](https://gist.github.com/517556): HAML converter for Jekyll.
@@ -442,7 +427,7 @@ You can find a few useful plugins at the following locations:
 - [Transform Layouts](https://gist.github.com/1472645): Allows HAML layouts (you need a HAML Converter plugin for this to work).
 - [Org-mode Converter](https://gist.github.com/abhiyerra/7377603): Org-mode converter for Jekyll.
 
-#### Filters
+#### Filtres
 
 - [Truncate HTML](https://github.com/MattHall/truncatehtml) by [Matt Hall](http://codebeef.com): A Jekyll filter that truncates HTML while preserving markup structure.
 - [Domain Name Filter by Lawrence Woodman](https://github.com/LawrenceWoodman/domain_name-liquid_filter): Filters the input text so that just the domain name is left.
@@ -502,7 +487,7 @@ You can find a few useful plugins at the following locations:
 - [Company website and blog plugins](https://github.com/flatterline/jekyll-plugins) by Flatterline, a [Ruby on Rails development company](http://flatterline.com/): Portfolio/project page generator, team/individual page generator, an author bio liquid tag for use on posts, and a few other smaller plugins.
 - [Jekyll plugins by Aucor](https://github.com/aucor/jekyll-plugins): Plugins for trimming unwanted newlines/whitespace and sorting pages by weight attribute.
 
-#### Other
+#### Autres
 
 - [Pygments Cache Path by Raimonds Simanovskis](https://github.com/rsim/blog.rayapps.com/blob/master/_plugins/pygments_cache_patch.rb): Plugin to cache syntax-highlighted code from Pygments.
 - [Draft/Publish Plugin by Michael Ivey](https://gist.github.com/49630): Save posts as drafts.
@@ -525,10 +510,9 @@ You can find a few useful plugins at the following locations:
 - [jekyll-postfiles](https://github.com/indirect/jekyll-postfiles): Add `_postfiles` directory and {% raw %}`{{ postfile }}`{% endraw %} tag so the files a post refers to will always be right there inside your repo.
 
 <div class="note info">
-  <h5>Jekyll Plugins Wanted</h5>
+  <h5>Plugins Jekyll Voulus</h5>
   <p>
-    If you have a Jekyll plugin that you would like to see added to this list,
-    you should <a href="../contributing/">read the contributing page</a> to find
-    out how to make that happen.
+    Si vous avez un plugin Jekyll que vous aimeriez voir ajouté à cette liste, vous devriez 
+    <a href="../contributing/">lire la page contribution</a> pour voir comment faire ça.
   </p>
 </div>

@@ -6,4 +6,4 @@ next_section: manual-deployment
 permalink: /docs/heroku/
 ---
 
-Move along, people. Nothing to see here.
+Passez votre chemin. Rien à voir ici, retournez sur la voie.

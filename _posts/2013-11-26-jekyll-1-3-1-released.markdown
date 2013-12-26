@@ -7,15 +7,11 @@ version: 1.3.1
 categories: [release]
 ---
 
-Just in time for the US holiday Thanksgiving, we're releasing version
-1.3.1 of Jekyll to address some of the issues seen since the
-release of 1.3.0.
+Juste à temps pour les vacances scolaires US de Thanksgiving, nous sortons la version
+1.3.1 de Jekyll pour résoudre quelques-un des problèmes vus depuis la sortie de 1.3.0.
 
-In addition to a couple of other smaller bug fixes, the biggest thing
-we've fixed is an issue with the `--watch` option with Ruby 1.8.7. For a
-full run-down, visit our [change log](/docs/history/)!
+En plus de quelques autres réparations de petits bugs, la plus grosse chose que nous avons réparée est un problème avec l'option `--watch` avec Ruby 1.8.7. Pour une explication complète, visitez notre [log de modidications](/docs/history/)!
 
-Thanks to all the people who have contributed to this release! They are
-(in alphabetical order): Abhi Yerra, Anatol Broder, Andreas Möller, Greg
+Merci à toutes les personnes qui ont contribué sur cette version ! Par ordre alphabétique, ce sont : Abhi Yerra, Anatol Broder, Andreas Möller, Greg
 Karékinian, Sam Rayner, Santeri Paavolainen, Shigeya Suzuki, Yihang Ho,
-albertogg, andrewhavens, maul.esel, and thomasdao
+albertogg, andrewhavens, maul.esel, et thomasdao
