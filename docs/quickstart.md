@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Guide de démarrage rapide
+title: Démarrage rapide
 prev_section: home
 next_section: installation
 permalink: /docs/quickstart/
