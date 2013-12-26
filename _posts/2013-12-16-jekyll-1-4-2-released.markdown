@@ -7,11 +7,10 @@ version: 1.4.2
 categories: [release]
 ---
 
-Cette release réparer [une régression][] où les blocs de code fenced de Maruku ont été désactivés, 
-au lieu de la valeur précédente par défaut sur on. 
+Cette release répare [une régression][] où les blocs de code *fenced* de Maruku ont été désactivés, au lieu de la valeur précédente qui était activée par défaut. 
 Nous avons ajouté une nouvelle configuration par défaut 
 à notre clé de config `maruku` : `fenced_code_blocks` et l'avons 
-réglé par défaut sur `true`.
+réglée par défaut sur `true`.
 
 Si vous ne souhaitez pas utiliser les blocs de code fenced  de Maruku, 
 vous pouvez désactiver cette option dans votre fichier de configuration du site.
