@@ -8,7 +8,7 @@ permalink: /docs/contributing/
 
 Vous avez une idée géniale à jeter dans Jekyll ? Super ! Gardez en tête ce qui suit : 
 
-* Si vous créez une petite réparation ou un patch pour une fonctionnalité existante, un simple test fera simplement l'affaire. SVP restez dans les confins de la suite actuelle de test et utilisez [Shoulda](http://github.com/thoughtbot/shoulda/tree/master) et [RR](http://github.com/btakita/rr/tree/master).
+* Si vous créez une petite réparation ou un patch pour une fonctionnalité existante, un simple test fera simplement l'affaire. SVP, confinez-vous à la suite actuelle de test et utilisez [Shoulda](http://github.com/thoughtbot/shoulda/tree/master) et [RR](http://github.com/btakita/rr/tree/master).
 * Si c'est une toute nouvelle fonctionnalité, assurez-vous de créer une nouvelle fonctionnalité [Cucumber](https://github.com/cucumber/cucumber/) et refaites les étapes si nécessaire. Fournissez aussi un peu de documentation dans votre `site` forké, ce sera apprécié. Une fois fusionnée, elle sera tranférée sur le `site` principal, jekyllrb.com.
 * Si votre contribution change quelque comportement de Jekyll, assurez-vous de mettre à jour la documentation. Elle vit dans `site/docs`. S'il manque de l'information dans les docs, sentez-vous libre d'en ajouter. Les documentations géniales font les grands projets ! 
 * SVP, suivez le [Guide de Style GitHub Ruby](https://github.com/styleguide/ruby) quand vous modifiez le code Ruby.
@@ -25,7 +25,7 @@ Vous avez une idée géniale à jeter dans Jekyll ? Super ! Gardez en tête ce q
 Dépendances Test
 ---------------------------
 
-Pour faire tourner la suite test et construire la gem, vous devrez installer les dépendances de Jekyll. Jekyll utilise Bundler, faites donc un lancement rapide de la commande `bundle` et tout est réglé !
+Pour faire tourner la suite test et construire la gem, vous devrez installer les dépendances de Jekyll. Jekyll utilise Bundler, faites donc un lancement rapide de la commande `bundle` et tout sera réglé !
 
 {% highlight bash %}
 $ bundle

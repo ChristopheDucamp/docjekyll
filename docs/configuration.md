@@ -359,7 +359,7 @@ Toutes les autres extensions conservent leurs noms usuels à partir de RedCarpet
 
 ### Kramdown
 
-En plus de valeurs par défaut citées au-dessus, vous pouvez aussi activer la reconnaissance de Github Flavored Markdown en passant une option `input` avec une valeur de "GFM".
+En plus des valeurs par défaut citées au-dessus, vous pouvez aussi activer la reconnaissance de Github Flavored Markdown en passant une option `input` avec une valeur de "GFM".
 
 Par exemple, dans votre fichier `_config.yml`:
 

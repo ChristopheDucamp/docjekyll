@@ -11,8 +11,7 @@ Si le problème que vous rencontrez n'est pas couvert en-dessous, SVP [rendez co
 
 ## Problèmes d'Installation
 
-Si vous rencontrez des erreurs durant l'installation de gem, vous pourriez avoir besoin d'installer 
-les fichiers header pour les modules de compilation d'extension pour ruby 1.9.1. Ceci peut être fait sur 
+Si vous rencontrez des erreurs durant l'installation de gem, vous pourriez avoir besoin d'installer les fichiers header pour les modules de compilation d'extension pour ruby 1.9.1. Ceci peut être fait sur 
 Ubuntu ou Debian en faisant tourner :
 
 {% highlight bash %}
@@ -86,8 +85,7 @@ L'ordre de précédence des conflits pour les [réglages de configuration](../co
 2.  Réglages fichier de configuration
 3.  Défauts
 
-Ce qui veut dire : les valeurs par défaut sont écrasées par les options dans `_config.yml`,
-et les flags spécifiés à la ligne de commande écraseront tous les autres paramétrages spécifiés ailleurs.
+Ce qui veut dire : les valeurs par défaut sont écrasées par les options dans `_config.yml`, et les flags spécifiés à la ligne de commande écraseront tous les autres paramétrages spécifiés ailleurs.
 
 ## Problèmes de Marquage
 
@@ -101,24 +99,16 @@ Si votre lien a des caractères qui doivent être échappés, vous devez utilise
 ![Texte alt](http://yuml.me/diagram/class/[Projet]->[Tache])
 {% endhighlight %}
 
-Si vous avez un tag vide, par ex. `<script src="js.js"></script>`, Maruku transforme ça en 
-`<script src="js.js" />`. Ceci cause des problèmes dans Firefox et probablement d'autres navigateurs et c'est [déconseillé en XHTML.](http://www.w3.org/TR/xhtml1/#C_3). 
+Si vous avez un tag vide, par ex. `<script src="js.js"></script>`, Maruku transforme ça en `<script src="js.js" />`. Ceci provoque des problèmes dans Firefox et probablement d'autres navigateurs et c'est [déconseillé en XHTML.](http://www.w3.org/TR/xhtml1/#C_3). 
 Une réparation facile est de placer un espace entre les balises d'ouverture et de fermeture.
 
 ### RedCloth
 
-Les versions 4.1.1 et suivantes n'obéissent pas à la balise notextile. [C'est un 
-bug connu](http://aaronqian.com/articles/2009/04/07/redcloth-ate-my-notextile.html)
-et qui, nous l'espérons, sera résolu pour la 4.2. Vous pouvez encore utiliser la 4.1.9, mais 
-la suite de test requiert que 4.1.0 soit installée. Si vous utilisez une version de 
-RedCloth qui n'a pas la balise notextile, vous pouvez remarquer que 
-les blocs de syntaxe mis en valeur à partir de Pygments ne sont pas mis en page correctement,
-parmi d'autres choses. Si vous voyez ceci, installez simplement 4.1.0.
+Les versions 4.1.1 et suivantes n'obéissent pas à la balise notextile. [C'est un bug connu](http://aaronqian.com/articles/2009/04/07/redcloth-ate-my-notextile.html) et qui, nous l'espérons, sera résolu pour la 4.2. Vous pouvez encore utiliser la 4.1.9, mais la suite de test requiert que 4.1.0 soit installée. Si vous utilisez une version de RedCloth qui n'a pas la balise notextile, vous pouvez remarquer que les blocs de syntaxe mis en valeur à partir de Pygments ne sont pas mis en page correctement, parmi d'autres choses. Si vous voyez ceci, installez simplement 4.1.0.
 
 ### Liquid
 
-La toute dernière version, la version 2.0, semble briser l'usage de `{{ "{{" }}` dans les 
-templates. À la différence des versions précédentes, utilisant `{{ "{{" }}` dans 2.0 déclenche l'erreur suivante : 
+La toute dernière version, la version 2.0, semble briser l'usage de `{{ "{{" }}` dans les templates. À la différence des versions précédentes, utilisant `{{ "{{" }}` dans 2.0 déclenche l'erreur suivante : 
 
 {% highlight bash %}
 '{{ "{{" }}' was not properly terminated with regexp: /\}\}/  (Liquid::SyntaxError)
@@ -126,12 +116,11 @@ templates. À la différence des versions précédentes, utilisant `{{ "{{" }}` 
 
 ### Extraits
 
-Depuis la v1.0.0, Jekyll dispose d'extraits de posts automatiquement-générés. Depuis la 
-v1.1.0, Jekyll passe aussi ces extraits à travers Liquid, ce qui peut provoquer des erreurs étranges où les références 
+Depuis la v1.0.0, Jekyll dispose d'extraits de posts automatiquement-générés. Depuis la v1.1.0, Jekyll passe aussi ces extraits à travers Liquid, ce qui peut provoquer des erreurs étranges où les références 
 n'existent pas ou une balise n'a pas été fermée. Si vous rencontrez ces erreurs, essayez de réglér `excerpt_separator: ""` dans votre fichier 
 `_config.yml`, ou réglez le sur quelque chaîne n'ayant pas de sens.
 
 <div class="note">
-  <h5>SVP, rendez compte des problèmes que vous croisez !</h5>
-  <p>Si vous croisez un bug, SVP <a href="{{ site.repository }}/issues/new">créez un issue</a> sur GitHub décrivant le problème et tous les contournements que vous avez trouvés avin que nous puissions le documenter ici pour les autres.</p>
+<h5>SVP, rendez compte des problèmes que vous croisez !</h5>
+<p>Si vous croisez un bug, SVP <a href="{{ site.repository }}/issues/new">créez un issue</a> sur GitHub décrivant le problème et tous les contournements que vous avez trouvés avin que nous puissions le documenter ici pour les autres.</p>
 </div>

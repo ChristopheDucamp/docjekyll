@@ -6,11 +6,11 @@ next_section: drafts
 permalink: /docs/posts/
 ---
 
-L'un des aspects les plus intéressants de Jekyll est qu'il est “conscient des blogs”. Qu'est-ce que ça veut dire plus précisément ? Bon. Dit plus simplement, cela signifie que le blogging est intégré dans les fonctionnalités de Jekyll. Si vous écrivez des articles et les publiez en ligne, ceci veut dire que vous pouvez publier et maintenir simplement un blog en gérant un répertoire ou des fichiers-texte sur votre ordinateur. Si vous comparez cela aux tracas de configuration et de maintenance des bases de données et des systèmes de gestion de contenus basés sur le web, ceci sera un changement bienvenu.
+L'un des aspects les plus intéressants de Jekyll est qu'il est “conscient des blogs”. Qu'est-ce que ça veut dire plus précisément ? Dit plus simplement, cela signifie que le blogging est intégré dans les fonctionnalités de Jekyll. Si vous écrivez des articles et les publiez en ligne, ceci signifie que vous pouvez publier et maintenir simplement un blog en gérant un répertoire ou des fichiers-texte sur votre ordinateur. Si vous comparez cela à tous les tracas de configuration et de maintenance des bases de données et des systèmes de gestion de contenus basés sur le web, ceci sera un changement bienvenu.
 
 ## Le Répertoire Posts
 
-Comme c'est expliqué sur la page [Structure des Répertoires](../structure/), le répertoire `_posts` est l'endroit où vivront vos posts de blog. Ces fichiers peuvent être soit formatés sous forme de fichiers texte [Markdown](http://daringfireball.net/projects/markdown/) ou [Textile](http://textile.sitemonks.com/), et tant qu'ils ont un [front-matter YAML](../frontmatter/), ils seront convertis à partir du format source à l'intérieur d'une page HTML qui fera partie de votre site statique.
+Comme cela est expliqué sur la page [Structure des Répertoires](../structure/), le répertoire `_posts` est l'endroit où vivront vos posts de blog. Ces fichiers peuvent être soit formatés sous forme de fichiers texte [Markdown](http://daringfireball.net/projects/markdown/) ou [Textile](http://textile.sitemonks.com/), et tant qu'ils ont un [front-matter YAML](../frontmatter/), ils seront convertis à partir du format source à l'intérieur d'une page HTML qui fera partie de votre site statique.
 
 ### Créer des Fichiers Post
 
@@ -130,4 +130,4 @@ end
   </p>
 </div>
 
-Ces fondamentaux devraient vous suffire pour écrire vos premiers posts. Quand vous serez prêts pour plonger dans tout ce qu'il est possible de faire, vous pourriez être intéressé par des trucs comme [personnaliser les permaliens des posts](../permalinks/) ou utiliser des [variables personnalisées](../variables/) dans vos posts et n'importe où sur votre site.
+Ces fondamentaux devraient vous suffire pour écrire vos premiers posts. Quand vous serez prêts pour plonger dans tout ce qu'il est possible de faire, vous pourriez être intéressé par des trucs comme la possibilité de[personnaliser les permaliens des posts](../permalinks/) ou d'utiliser des [variables personnalisées](../variables/) dans vos posts et n'importe où sur votre site.

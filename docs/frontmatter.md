@@ -16,7 +16,7 @@ title: Bloguer Comme un Hacker
 ---
 {% endhighlight %}
 
-Entre ces trois tirets ('`-`'), vous pouvez régler des variables prédéfinies (voir en dessous pour une référence) ou même créer vos propres règles personnalisées. Ces variables seront ensuite disponibles pour y accéder en utilisant des marqueurs Liquid tant dans le fichier que  dans n'importe lesquels des layouts ou des includes dont dépend la page ou le post en question.
+Dans l'espace entre ces trois tirets ('`-`'), vous pouvez régler des variables prédéfinies (voir en dessous pour une référence) ou même créer vos propres règles personnalisées. Ces variables seront ensuite disponibles pour y accéder en utilisant des marqueurs Liquid tant dans le fichier que dans n'importe lesquels des layouts ou des includes dont dépend la page ou le post en question.
 
 <div class="note warning">
   <h5>Attention à l'Encodage de Caractère UTF-8</h5>
@@ -144,7 +144,7 @@ Celles-ci sont disponibles en sortie de boîte pour être utilisées dans le fro
       </td>
       <td>
         <p>
-          Une date ici écrase la date du nom du post. Ceci peut être utilisé pour vosu assurer d'un tri correct des posts.
+          Une date ici écrase la date du nom du post. Ceci peut être utilisé pour vous assurer d'un tri correct des posts.
         </p>
       </td>
     </tr>

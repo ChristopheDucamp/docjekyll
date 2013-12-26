@@ -18,7 +18,7 @@ L'usage croissant de Jekyll amène à la production d'une grande variété de tu
   form](http://getsimpleform.com/)
 - [JekyllBootstrap.com](http://jekyllbootstrap.com)
 
-  Fournit des explications détaillées, exemples et aide sur le code pour démarrer plus facilement sur Jekyll.
+  Fournit des explications détaillées, exemples et aides sur le code pour démarrer plus facilement sur Jekyll.
 
 ### Tutoriels
 

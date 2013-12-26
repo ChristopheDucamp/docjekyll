@@ -5,10 +5,10 @@
         <a href="/news/">Toute l'Actu</a>
       </li>
       <li class="{% if page.title == 'Releases' %}current{% endif %}">
-        <a href="/news/releases/">Jekyll Releases</a>
+        <a href="/news/releases/">Releases Jekyll</a>
       </li>
     </ul>
-    <h4>Recent Releases</h4>
+    <h4>Releases Récentes</h4>
     <ul>
       {% for post in site.posts limit:5 %}
       <li class="{% if page.title == post.title %}current{% endif %}">

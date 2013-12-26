@@ -42,7 +42,7 @@ $ [sudo] gem install kramdown
 Ensuite vous pouvez spécifier Kramdown comme moteur Markdown dans `_config.yml`.
 
 {% highlight yaml %}
-# In _config.yml
+# Dans _config.yml
 markdown: kramdown
 {% endhighlight %}
 

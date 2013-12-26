@@ -6,9 +6,9 @@ next_section: contributing
 permalink: /docs/upgrading/
 ---
 
-Mettre à jour à partir d'une version plus ancienne de Jekyll ? Quelques trucs ont changé dans la version 1.0 que vous pourriez vouloir connaître.
+Mise à jour à partir d'une version plus ancienne de Jekyll ? Quelques trucs ont changé dans la version 1.0 que vous pourriez vouloir connaître.
 
-Avant de plonger, avancez et récupérez la dernière version de Jekyll :
+Avant de plonger, allez récupérer la dernière version de Jekyll :
 
 {% highlight bash %}
 $ gem update jekyll
@@ -21,8 +21,7 @@ $ gem update jekyll
 
 ### La Commande Jekyll
 
-Pour plus de clarté, Jekyll accepte désormais les commandes `build` et `serve`.
-Alors qu'avant vous pouviez simplement faire tourner la commande `jekyll` pour générer un site et `jekyll --server` pour le voir localement, utilisez désormais les sous-commandes `jekyll build` et `jekyll serve` pour faire la même chose. Et si vous voulez que Jekyll reconstruise automatiquement à chaque fois qu'un fichier est modifié, ajoutez simplement le flag `--watch` à la fin.
+Pour plus de clarté, Jekyll accepte désormais les commandes `build` et `serve`. Alors qu'avant vous pouviez uniquement tourner la commande `jekyll` pour générer un site et lancer `jekyll --server` pour le voir localement, utilisez désormais les sous-commandes `jekyll build` et `jekyll serve` pour faire la même chose. Et si vous voulez que Jekyll reconstruise automatiquement à chaque fois le site lorsqu'un fichier est modifié, ajoutez simplement à la fin de la commande le flag `--watch`.
 
 <div class="note info">
   <h5>Regarder et Servir</h5>
@@ -31,18 +30,15 @@ Alors qu'avant vous pouviez simplement faire tourner la commande `jekyll` pour g
 
 ### Permaliens Absolus
 
-Dans Jekyll v1.0, nous avons introduit les permaliens absolus pour les pages dans les sous-répetoires.
-Jusqu'à la v2.0, il est **opt-in**. À partir de la v2.0, néanmoins, les peramiens absolus 
-deviendront **opt-out**, voulant dire par là que Jekyll utilisera par défaut des permaliens absolus au lieu des permaliens relatifs.
+Dans Jekyll v1.0, nous avons introduit les permaliens absolus pour les pages dans les sous-répetoires. Jusqu'à la v2.0, c'était en **opt-in**. À partir de la v2.0, néanmoins, les permaliens absolus deviendront **opt-out**, c'est à dire que Jekyll utilisera par défaut des permaliens absolus au lieu de permaliens relatifs.
 
-* Pour utiliser des permaliens absolus, réglez dans votre fichier de configuration `relative_permalinks: false`.
-* Pour continuer à utiliser des permaliens relatifs,  réglez dans votre fichier de configuration  `relative_permalinks: true`.
+* Pour utiliser des permaliens absolus, allez dans votre fichier de configuration et réglez `relative_permalinks: false`.
+* Pour continuer à utiliser des permaliens relatifs, réglez dans votre fichier de configuration `relative_permalinks: true`.
 
 <div class="note warning" id="absolute-permalinks-warning">
   <h5 markdown="1">Les permaliens absolus seront activés par défaut dans la v2.0</h5>
   <p markdown="1">
-    À partir de la Jekyll v2.0, `relative_permalinks` sera réglé par défaut sur `false`,
-    signifiant que toutes les pages seront construites en utilisant le comportement de permalien absolu. La bascule existera encore jusqu'à la v2.0.
+    À partir de la Jekyll v2.0, `relative_permalinks` sera réglé par défaut sur `false`, ce qui veut dire que toutes les pages seront construites en utilisant le comportement de permalien absolu. La bascule existera encore jusqu'à la v2.0.
   </p>
 </div>
 
@@ -53,8 +49,7 @@ Jekyll vous permet désormais d'écrire des posts brouillons, et vous permet de 
 <div class="note info">
   <h5 markdown="1">Les drafts n'ont pas de dates</h5>
   <p markdown="1">
-    À la différences des posts, les drafts n'ont pas de date, parce qu'ils n'ont pas encore été publiés. Plutôt que de nommer votre draft comme quelque chose de type 
-    `2013-07-01-mon-post-brouillon.md`, nommez simplement le fichier que vous aimeriez poster ici comme quelque chose du type `mon-post-brouillon.md`.</p>
+    À la différences des posts, les drafts n'ont pas de date, parce qu'ils n'ont pas encore été publiés. Plutôt que de nommer votre draft comme quelque chose de type `2013-07-01-mon-post-brouillon.md`, nommez simplement le fichier que vous aimeriez poster ici comme quelque chose du type `mon-post-brouillon.md`.</p>
 </div>
 
 ### Personnaliser le Fichier Config
@@ -96,11 +91,10 @@ Jekyll 1.0 a introduit de novuelles options du fichier config. Avant de mettre �
 
 ### Baseurl
 
-Souvent, vous voudrez avoir la capacité de faire tourner un site Jekyll à plusieurs endroits, comme une prévisualisation locale avant de pousser vers les Pages GitHub. Jekyll 1.0 facilite cela avec le nouveau flag `--baseurl`. Pour tirer partie de cette fonctionnalité, ajoutez d'abord la `baseurl` de production à votre fichier du site `_config.yml`. Puis, sur tout le site, préfixez simplement les URLs relatives avec `{% raw %}{{ site.baseurl }}{% endraw %}`. Quand vous êtes prêts pour prévisualiser votre site localement, passez le flag `--baseurl` avec votre url de base (probablement `/`) vers `jekyll serve` et Jekyll remplira dedans tout ce que vous avez passé, vous assurant que vos liens fonctionnent comme attendu dans les deux environnements.
+Souvent, vous voudrez avoir la capacité de faire tourner un site Jekyll à plusieurs endroits, comme une prévisualisation locale avant de pousser vers les Pages GitHub. Jekyll 1.0 facilite ça avec le nouveau flag `--baseurl`. Pour tirer partie de cette fonctionnalité, ajoutez d'abord la `baseurl` de production à votre fichier du site `_config.yml`. Puis, sur tout le site, préfixez simplement les URLs relatives avec `{% raw %}{{ site.baseurl }}{% endraw %}`. Quand vous êtes prêts pour prévisualiser votre site localement, passez le flag `--baseurl` avec votre url de base (probablement `/`) vers `jekyll serve` et Jekyll remplira dedans tout ce que vous avez passé, vous assurant que vos liens fonctionnent comme attendu dans les deux environnements.
 
 
 <div class="note warning">
   <h5 markdown="1">Toutes les URLs de page et post contiennent des slashes devant</h5>
-  <p markdown="1">Si vous utilisez la méthode décrite au-dessus, rappelez-vous que les URLs pour tous les posts et pages commencent par un slash. Par conséquent, en concaténant la baseurl du site et l'url de post/page où 
-  `site.baseurl = /` et `post.url = /2013/06/05/mon-post-fun/` provoquera deux slashes en avant, ce qui brisera les liens. Il est par conséquent suggéré que le fait de préfixer avec `site.baseurl` ne soit uniquement utilisé quand la `baseurl` est quelque chose d'autre que la valeur par défaut `/`.</p>
+  <p markdown="1">Si vous utilisez la méthode décrite au-dessus, rappelez-vous que les URLs pour tous les posts et pages commencent par un slash. Par conséquent, en concaténant la baseurl du site et l'url de post/page où `site.baseurl = /` et `post.url = /2013/06/05/mon-post-fun/` provoquera deux slashes en avant, ce qui brisera les liens. Il est donc suggéré que préfixer avec `site.baseurl` ne soit uniquement utilisé quand la `baseurl` est quelque chose d'autre que la valeur par défaut `/`.</p>
 </div>

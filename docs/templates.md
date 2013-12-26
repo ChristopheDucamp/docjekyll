@@ -6,8 +6,7 @@ next_section: permalinks
 permalink: /docs/templates/
 ---
 
-Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) pour traiter les templates. Tous les [tags](http://wiki.shopify.com/Logic) standard Liquid et 
-[filtres](http://wiki.shopify.com/Filters) sont supportés. Jekyll ajoute en plus quelques filtres et tags pratiques pour faciliter des tâches communes.
+Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) pour traiter les templates. Tous les [tags](http://wiki.shopify.com/Logic) et les [filtres](http://wiki.shopify.com/Filters) standards Liquid sont supportés. Jekyll ajoute en plus quelques filtres et tags pratiques pour faciliter des tâches communes.
 
 ## Filtres
 
@@ -22,7 +21,7 @@ Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) p
   <tbody>
     <tr>
       <td>
-        <p class='name'><strong>Date to XML Schema </strong></p>
+        <p class='name'><strong>Date to XML Schema</strong></p>
         <p>Convertit une Date au format Schéma XML (ISO 8601).</p>
       </td>
       <td class='align-center'>
@@ -36,7 +35,7 @@ Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) p
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Date to RFC-822 Format</strong></p>
+        <p class='name'><strong>Date to RFC-822</strong></p>
         <p>Convertit une Date dans le format RFC-822 utilisé pour les flux RSS.</p>
       </td>
       <td class='align-center'>
@@ -65,7 +64,7 @@ Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) p
     <tr>
       <td>
         <p class='name'><strong>Date to Long String</strong></p>
-        <p>Format a date to long format.</p>
+        <p>Formate une date dans un format long.</p>
       </td>
       <td class='align-center'>
         <p>
@@ -91,8 +90,8 @@ Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) p
       <td>
         <p class='name'><strong>CGI Escape</strong></p>
         <p>
-          CGI escape a string for use in a URL. Replaces any special characters
-          with appropriate %XX replacements.
+          CGI escape une chaîne à utiliser dans une URL. Remplace tous les caractères spéciaux
+          avec les remplacements %XX appropriés.
         </p>
       </td>
       <td class='align-center'>
@@ -122,8 +121,8 @@ Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) p
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Number of Words</strong></p>
-        <p>Count the number of words in some text.</p>
+        <p class='name'><strong>number_of_words</strong></p>
+        <p>Compte le nombre de mots dans n'importe quel texte.</p>
       </td>
       <td class='align-center'>
         <p>
@@ -151,7 +150,7 @@ Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) p
     <tr>
       <td>
         <p class='name'><strong>Textilize</strong></p>
-        <p>Convert a Textile-formatted string into HTML, formatted via RedCloth</p>
+        <p>Convertit une chaîne formatée-Textile en HTML, formaté via RedCloth</p>
       </td>
       <td class='align-center'>
         <p>
@@ -173,7 +172,7 @@ Jekyll utilise le langage de template [Liquid](http://wiki.shopify.com/Liquid) p
     <tr>
       <td>
         <p class='name'><strong>Data To JSON</strong></p>
-        <p>Convert Hash or Array to JSON.</p>
+        <p>Convertit les Hash ou Array vers JSON.</p>
       </td>
       <td class='align-center'>
         <p>

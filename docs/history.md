@@ -7,12 +7,12 @@ prev_section: contributing
 ## 1.4.2 / 2013-12-16
 
 ### Réparations de bugs
-- Turn on Maruku fenced code blocks by default ([#1830]({{ site.repository }}/issues/1830))
+- Active par défaut les blocs de code Maruku *fenced* ([#1830]({{ site.repository }}/issues/1830))
 
 ## 1.4.1 / 2013-12-09
 
 ### Réparations de bug
-- Don't allow nil entries when loading posts ([#1796]({{ site.repository }}/issues/1796))
+- Ne permet pas les entrées nil au chargement des posts ([#1796]({{ site.repository }}/issues/1796))
 
 ## 1.4.0 / 2013-12-07
 

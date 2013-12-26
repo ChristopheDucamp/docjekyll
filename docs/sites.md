@@ -6,7 +6,7 @@ next_section: resources
 permalink: /docs/sites/
 ---
 
-Il est intéressant de voir quels sont les designs et fonctionnalités que d'autres sont parvenus à construire. Ci-dessous, quelques blogs-motorisés-par-Jekyll ont été sélectionnés manuellement à des fins d'apprentissage.
+Il est intéressant de voir quels sont les designs et fonctionnalités que d'autres sont parvenus à construire. Ci-dessous, quelques blogs-motorisés-par-Jekyll ayant été sélectionnés manuellement à des fins d'apprentissage.
 
 - [Tom Preston-Werner](http://tom.preston-werner.com/)
     ([source](http://github.com/mojombo/mojombo.github.com))
